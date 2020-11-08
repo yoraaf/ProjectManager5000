@@ -22,6 +22,8 @@ public class TeamForm extends javax.swing.JFrame {
             e.printStackTrace();
         }
         initComponents();
+        setVisible(true);
+
     }
 
     /**
@@ -49,7 +51,7 @@ public class TeamForm extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         staffList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         staffList.addActionListener(new java.awt.event.ActionListener() {

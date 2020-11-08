@@ -148,6 +148,7 @@ public final class MainForm extends javax.swing.JFrame {
     }
 
     private void createTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        TeamForm team = new TeamForm();
         // TODO add your handling code here:
     }
 
@@ -165,6 +166,7 @@ public final class MainForm extends javax.swing.JFrame {
 
     private void manageProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        ProjectForm project = new ProjectForm();
     }
 
     /**

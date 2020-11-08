@@ -22,6 +22,7 @@ public class ProjectForm extends javax.swing.JFrame {
             e.printStackTrace();
         };
         initComponents();
+        setVisible(true);
     }
 
     /**
@@ -40,7 +41,7 @@ public class ProjectForm extends javax.swing.JFrame {
         deleteTaskButton = new javax.swing.JButton();
         selectedProject = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         assignTeamButton.setText("Assign Team");
         assignTeamButton.addActionListener(new java.awt.event.ActionListener() {
