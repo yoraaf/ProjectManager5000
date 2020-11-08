@@ -141,6 +141,12 @@ public final class MainForm extends javax.swing.JFrame {
 
     private void createProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        String name = JOptionPane.showInputDialog("Enter project name.");
+        Project newProject = new Project(name);
+        newProject.addTask("FirstTask");
+        System.out.println(newProject.getTasks());
+
+        System.out.println("Project name: "+newProject.getName());
     }
 
     private void deleteProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
