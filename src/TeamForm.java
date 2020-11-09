@@ -63,6 +63,11 @@ public class TeamForm extends javax.swing.JFrame {
         });
 
         addAsMemberButton.setText("Add as Member");
+        addAsMemberButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addAsMemberButtonActionPerformed(evt);
+            }
+        });
 
         addAsLeaderButton.setText("Add as Team Leader");
         addAsLeaderButton.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +96,7 @@ public class TeamForm extends javax.swing.JFrame {
 
         jLabel1.setText("Enter Team Name");
 
-        addStaffButton.setText("Add Staff Memeber");
+        addStaffButton.setText("Add Staff Member");
         addStaffButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addStaffButtonActionPerformed(evt);
@@ -104,9 +109,9 @@ public class TeamForm extends javax.swing.JFrame {
 
         jLabel1.setText("Enter Team Name");
 
-        addStaffButton.setText("Add Staff Memeber");
+        addStaffButton.setText("Add Staff Member");
 
-        selectStaffLabel.setText("Sellect Staff Member");
+        selectStaffLabel.setText("Select Staff Member");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,6 +177,10 @@ public class TeamForm extends javax.swing.JFrame {
     }
 
     private void addStaffButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void addAsMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
