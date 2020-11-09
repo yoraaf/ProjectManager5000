@@ -36,7 +36,7 @@ public class TeamForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
+
         jTextArea1 = new javax.swing.JTextArea();
         staffList = new javax.swing.JComboBox<>();
         addAsMemberButton = new javax.swing.JButton();
@@ -49,9 +49,7 @@ public class TeamForm extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         teamList = new javax.swing.JTextArea();
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+
 
         //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,7 +81,7 @@ public class TeamForm extends javax.swing.JFrame {
         teamList.setRows(5);
         jScrollPane4.setViewportView(teamList);
 
-        teamNameField.setText("Fuck Raaf");
+        teamNameField.setText("⛧");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,6 +160,8 @@ public class TeamForm extends javax.swing.JFrame {
 
     private void addAsMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        String oldText = teamList.getText();
+        teamList.setText(oldText+staffList.getSelectedItem().toString()+"\n");
     }
 
     private void addStaffButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +187,6 @@ public class TeamForm extends javax.swing.JFrame {
     private javax.swing.JButton addStaffButton;
     private javax.swing.JButton finishButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel selectStaffLabel;
