@@ -15,7 +15,19 @@ public class ProjectForm extends javax.swing.JFrame {
     /**
      * Creates new form ProjectForm
      */
+    private Project selectedProj;
     public ProjectForm() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        };
+        initComponents();
+        setVisible(true);
+    }
+    public ProjectForm(Project selectedProj) {
+        super("Properties of "+selectedProj.getName());
+        this.selectedProj = selectedProj;
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -133,6 +145,8 @@ public class ProjectForm extends javax.swing.JFrame {
     }
 
     private void createTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        String name = JOptionPane.showInputDialog("Enter task name.");
+        Task test = new Task(name);
         // TODO add your handling code here:
     }
 

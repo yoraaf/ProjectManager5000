@@ -9,13 +9,27 @@
  * @author joshu
  */
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public final class MainForm extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
+    //The below map is used to easily link the name used in the JComboBox, to a project
+    private Map<String, Project> projects = new HashMap<String, Project>();
+    //Example: projects.put(project.getName(), project);
+    private ArrayList<String> projectNames = new ArrayList<>();
     public MainForm() {
-
+        super("Admin panel");
+        Project project1 = new Project("proj1 title");
+        addProjectToList(project1);
+        Project project2 = new Project("proj2 title");
+        addProjectToList(project2);
+        Project project3 = new Project("proj3 title");
+        addProjectToList(project3);
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -24,7 +38,10 @@ public final class MainForm extends javax.swing.JFrame {
         initComponents();
         funcvisible();
     }
-
+    public void addProjectToList(Project proj){
+        projects.put(proj.getName(), proj);
+        projectNames.add(proj.getName());
+    }
     public void funcvisible() {
         setVisible(true);
     }
@@ -48,53 +65,25 @@ public final class MainForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         createProjectButton.setText("Create Project");
-        createProjectButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createProjectButtonActionPerformed(evt);
-            }
-        });
+        createProjectButton.addActionListener(evt -> createProjectButtonActionPerformed(evt));
 
         deleteProjectButton.setText("Delete Project");
-        deleteProjectButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteProjectButtonActionPerformed(evt);
-            }
-        });
+        deleteProjectButton.addActionListener(evt -> deleteProjectButtonActionPerformed(evt));
 
-        projectList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        projectList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                projectListActionPerformed(evt);
-            }
-        });
+        projectList.setModel(new javax.swing.DefaultComboBoxModel<>(projectNames.toArray(new String[0]))); //COPY THIS (sets combobox contents to proj array)
+        projectList.addActionListener(evt -> projectListActionPerformed(evt));
 
         createTeamButton.setText("Create Team");
-        createTeamButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createTeamButtonActionPerformed(evt);
-            }
-        });
+        createTeamButton.addActionListener(evt -> createTeamButtonActionPerformed(evt));
 
         deleteTeamButton.setText("Delete Team");
-        deleteTeamButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteTeamButtonActionPerformed(evt);
-            }
-        });
+        deleteTeamButton.addActionListener(evt -> deleteTeamButtonActionPerformed(evt));
 
         teamList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        teamList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teamListActionPerformed(evt);
-            }
-        });
+        teamList.addActionListener(evt -> teamListActionPerformed(evt));
 
         manageProjectButton.setText("Manage Project");
-        manageProjectButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageProjectButtonActionPerformed(evt);
-            }
-        });
+        manageProjectButton.addActionListener(evt -> manageProjectButtonActionPerformed(evt));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,6 +131,7 @@ public final class MainForm extends javax.swing.JFrame {
     private void createProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         String name = JOptionPane.showInputDialog("Enter project name.");
+        if(name == null){return;} //return if cancel is pressed
         Project newProject = new Project(name);
         newProject.addTask("FirstTask");
         System.out.println(newProject.getTasks());
@@ -172,7 +162,8 @@ public final class MainForm extends javax.swing.JFrame {
 
     private void manageProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        ProjectForm project = new ProjectForm();
+        Project selectedProj = projects.get(projectList.getSelectedItem().toString());
+        ProjectForm project = new ProjectForm(selectedProj);
     }
 
     /**
