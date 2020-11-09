@@ -5,6 +5,7 @@
  */
 
 import javax.swing.*;
+import java.util.Arrays;
 
 /**
  *
@@ -53,7 +54,7 @@ public class TeamForm extends javax.swing.JFrame {
 
         //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        staffList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        staffList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rob", "Robert", "Item 3", "Item 4" }));
         staffList.addActionListener(evt -> staffListActionPerformed(evt));
 
         addAsMemberButton.setText("Add as Member");
@@ -135,16 +136,28 @@ public class TeamForm extends javax.swing.JFrame {
 
     private void finishButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        Team myTeam = new Team();
-        myTeam.add("member1");
-        myTeam.add("member2");
-        myTeam.add("member3");
-        Team myTeam2 = new Team();
-        myTeam2.add("member1");
-        myTeam2.add("member2");
-        myTeam2.add("member3");
-        System.out.println(Team.Companion.getMasterList().toString());
+        if(!teamList.getText().contains("(L)")){
+            JOptionPane.showMessageDialog(null, "A team must have a leader.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;}
+        String teamString = teamList.getText();
+        String[] teamArray = teamString.split("\n");
 
+        //myTeam.addAll();
+        String leader = "";
+        for( String member : teamArray){
+            if (member.contains("(L)")){
+                member = member.substring(0,member.indexOf("(")-1);
+                leader = member;
+                System.out.println("leader: "+leader);
+            }
+        }
+        Team myTeam = new Team(teamNameField.getText(),leader, Arrays.asList(teamArray));
+        System.out.println(Team.Companion.getMasterList().toString());
+        String names = "Names: ";
+        for(Team team : Team.Companion.getMasterList()){
+            names+=team.getName()+" ";
+        }
+        System.out.println(names);
     }
 
     private void staffListActionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,12 +166,27 @@ public class TeamForm extends javax.swing.JFrame {
 
     private void addAsLeaderButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        addAsMemberButtonActionPerformed(evt);
+        String selectedStaff = staffList.getSelectedItem().toString();
+        if(teamList.getText().contains(selectedStaff)){return;}
+        String oldText = teamList.getText();
+        teamList.setText(oldText+selectedStaff+" (L)\n");
+        ((JButton)evt.getSource()).setEnabled(false); //disable button after selecting a leader
 
     }
 
     private void addAsMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        String teamString = teamList.getText();
+        String[] teamArray = teamString.split("\n");
+        for(int i = 0; i<teamArray.length; i++){
+            String member = teamArray[i];
+            if (member.contains("(L)")){
+                member = member.substring(0,member.indexOf("(")-1);
+                teamArray[i]=member;
+            }
+        }
+        String selectedStaff = staffList.getSelectedItem().toString();
+        if(Arrays.asList(teamArray).contains(selectedStaff)){return;}
         String oldText = teamList.getText();
         teamList.setText(oldText+staffList.getSelectedItem().toString()+"\n");
     }
