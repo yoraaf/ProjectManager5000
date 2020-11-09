@@ -58,39 +58,19 @@ public class ProjectForm extends javax.swing.JFrame {
         //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         assignTeamButton.setText("Assign Team");
-        assignTeamButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assignTeamButtonActionPerformed(evt);
-            }
-        });
+        assignTeamButton.addActionListener(evt -> assignTeamButtonActionPerformed(evt));
 
         taskList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        taskList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                taskListActionPerformed(evt);
-            }
-        });
+        taskList.addActionListener(evt -> taskListActionPerformed(evt));
 
         markButton.setText("Mark Complete");
-        markButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                markButtonActionPerformed(evt);
-            }
-        });
+        markButton.addActionListener(evt -> markButtonActionPerformed(evt));
 
         createTaskButton.setText("Create Task");
-        createTaskButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createTaskButtonActionPerformed(evt);
-            }
-        });
+        createTaskButton.addActionListener(evt -> createTaskButtonActionPerformed(evt));
 
         deleteTaskButton.setText("Delete Task");
-        deleteTaskButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteTaskButtonActionPerformed(evt);
-            }
-        });
+        deleteTaskButton.addActionListener(evt -> deleteTaskButtonActionPerformed(evt));
 
         selectedProject.setText("jLabel1");
 

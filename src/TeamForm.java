@@ -16,6 +16,7 @@ public class TeamForm extends javax.swing.JFrame {
      * Creates new form TeamForm
      */
     public TeamForm() {
+        super("Team Manager");
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -41,7 +42,6 @@ public class TeamForm extends javax.swing.JFrame {
         addAsMemberButton = new javax.swing.JButton();
         addAsLeaderButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        teamList = new javax.swing.JList<>();
         finishButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
@@ -56,39 +56,16 @@ public class TeamForm extends javax.swing.JFrame {
         //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         staffList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        staffList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                staffListActionPerformed(evt);
-            }
-        });
+        staffList.addActionListener(evt -> staffListActionPerformed(evt));
 
         addAsMemberButton.setText("Add as Member");
-        addAsMemberButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addAsMemberButtonActionPerformed(evt);
-            }
-        });
+        addAsMemberButton.addActionListener(evt -> addAsMemberButtonActionPerformed(evt));
 
         addAsLeaderButton.setText("Add as Team Leader");
-        addAsLeaderButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addAsLeaderButtonActionPerformed(evt);
-            }
-        });
-
-        teamList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(teamList);
+        addAsLeaderButton.addActionListener(evt -> addAsLeaderButtonActionPerformed(evt));
 
         finishButton.setText("Finalise Team");
-        finishButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finishButtonActionPerformed(evt);
-            }
-        });
+        finishButton.addActionListener(evt -> finishButtonActionPerformed(evt));
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -166,6 +143,16 @@ public class TeamForm extends javax.swing.JFrame {
 
     private void finishButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        Team myTeam = new Team();
+        myTeam.add("member1");
+        myTeam.add("member2");
+        myTeam.add("member3");
+        Team myTeam2 = new Team();
+        myTeam2.add("member1");
+        myTeam2.add("member2");
+        myTeam2.add("member3");
+        System.out.println(Team.Companion.getMasterList().toString());
+
     }
 
     private void staffListActionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,13 +161,15 @@ public class TeamForm extends javax.swing.JFrame {
 
     private void addAsLeaderButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }
+        addAsMemberButtonActionPerformed(evt);
 
-    private void addStaffButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
     }
 
     private void addAsMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void addStaffButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
@@ -210,6 +199,5 @@ public class TeamForm extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel selectStaffLabel;
     private javax.swing.JComboBox<String> staffList;
-    private javax.swing.JList<String> teamList;
     // End of variables declaration
 }
