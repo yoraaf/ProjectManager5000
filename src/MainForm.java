@@ -61,6 +61,8 @@ public final class MainForm extends javax.swing.JFrame {
         deleteTeamButton = new javax.swing.JButton();
         teamList = new javax.swing.JComboBox<>();
         manageProjectButton = new javax.swing.JButton();
+        projectListLabel = new javax.swing.JLabel();
+        teamListLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +87,10 @@ public final class MainForm extends javax.swing.JFrame {
         manageProjectButton.setText("Manage Project");
         manageProjectButton.addActionListener(evt -> manageProjectButtonActionPerformed(evt));
 
+        projectListLabel.setText("Project List");
+
+        teamListLabel.setText("Team List");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,21 +108,30 @@ public final class MainForm extends javax.swing.JFrame {
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(deleteTeamButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(deleteProjectButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(manageProjectButton, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))))
+                                                        .addComponent(manageProjectButton, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(projectListLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(teamListLabel))
+                                                .addGap(0, 0, Short.MAX_VALUE)))
                                 .addContainerGap())
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
+                                .addGap(15, 15, 15)
+                                .addComponent(projectListLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(projectList, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(manageProjectButton))
-                                .addGap(31, 31, 31)
+                                .addGap(33, 33, 33)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(createProjectButton)
                                         .addComponent(deleteProjectButton))
-                                .addGap(76, 76, 76)
+                                .addGap(33, 33, 33)
+                                .addComponent(teamListLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(teamList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -186,6 +201,9 @@ public final class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton deleteTeamButton;
     private javax.swing.JButton manageProjectButton;
     private javax.swing.JComboBox<String> projectList;
+    private javax.swing.JLabel projectListLabel;
     private javax.swing.JComboBox<String> teamList;
+    private javax.swing.JLabel teamListLabel;
+
     // End of variables declaration
 }
