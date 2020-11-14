@@ -26,27 +26,15 @@ public final class MainForm extends javax.swing.JFrame {
     public MainForm() {
         super("Admin panel");
         mainObj = this;
-        Project project1 = new Project("proj1 title");
-        addProjectToList(project1);
-        Project project2 = new Project("proj2 title");
-        addProjectToList(project2);
-        Project project3 = new Project("proj3 title");
-        addProjectToList(project3);
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
         };
         initComponents();
-        funcvisible();
-    }
-    public void addProjectToList(Project proj){
-        projects.put(proj.getName(), proj);
-        projectNames.add(proj.getName());
-    }
-    public void funcvisible() {
         setVisible(true);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,7 +62,8 @@ public final class MainForm extends javax.swing.JFrame {
         deleteProjectButton.setText("Delete Project");
         deleteProjectButton.addActionListener(evt -> deleteProjectButtonActionPerformed(evt));
 
-        projectList.setModel(new javax.swing.DefaultComboBoxModel<>(projectNames.toArray(new String[0]))); //COPY THIS (sets combobox contents to proj array)
+        updateProjectList();
+        //projectList.setModel(new javax.swing.DefaultComboBoxModel<>(Project.Companion.getNames().toArray(new String[0])));
         projectList.addActionListener(evt -> projectListActionPerformed(evt));
 
         createTeamButton.setText("Create Team");
@@ -147,21 +136,9 @@ public final class MainForm extends javax.swing.JFrame {
     public void updateTeamList(){
         teamList.setModel(new javax.swing.DefaultComboBoxModel<>(Team.Companion.getNames().toArray(new String[0])));
     }
-    private void createProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        String name = JOptionPane.showInputDialog("Enter project name.");
-        if(name == null){return;} //return if cancel is pressed
-        Project newProject = new Project(name);
-        newProject.addTask("FirstTask");
-        System.out.println(newProject.getTasks());
-
-        System.out.println("Project name: "+newProject.getName());
+    public void updateProjectList(){
+        projectList.setModel(new javax.swing.DefaultComboBoxModel<>(Project.Companion.getNames().toArray(new String[0])));
     }
-
-    private void deleteProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
     private void createTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {
         TeamForm team = new TeamForm();
         // TODO add your handling code here:
@@ -185,14 +162,42 @@ public final class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
-    private void projectListActionPerformed(java.awt.event.ActionEvent evt) {
+    private void deleteProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+
+        updateProjectList();
+    }
+
+    private void createProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        String name = JOptionPane.showInputDialog("Enter project name.");
+        if(name == null){return;} //return if cancel is pressed
+        Project newProject = new Project(name);
+        newProject.addTask("FirstTask");
+        System.out.println(newProject.getTasks());
+
+        System.out.println("Project name: "+newProject.getName());
+        updateProjectList();
+        projectList.setSelectedItem(name);
     }
 
     private void manageProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        Project selectedProj = projects.get(projectList.getSelectedItem().toString());
-        ProjectForm project = new ProjectForm(selectedProj);
+        String projName = projectList.getSelectedItem().toString();
+        ArrayList<Project> list = Project.Companion.getMasterList();
+        for(Project proj : list){
+            if (projName.equals(proj.getName())){
+                list.remove(proj);
+                ProjectForm project = new ProjectForm(proj);
+                break;
+            }
+        }
+        //Project selectedProj = projects.get(projectList.getSelectedItem().toString());
+        //ProjectForm project = new ProjectForm(selectedProj);
+    }
+
+    private void projectListActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
     }
 
     /**

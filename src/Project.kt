@@ -17,10 +17,13 @@ class Project(val name: String) {
 
     var progress:Int = 0
     var tasks : ArrayList<String> = ArrayList()
-    var manager: String = ""
     fun addTask(taskName:String){ //change later to adding task as an object
         tasks.add(taskName)
     }
+    override fun toString(): String {
+        return "[name: ${this.name}, progress: ${this.progress}, tasks:${this.tasks}]"
+    }
+
     companion object{
         @JvmStatic var masterList: ArrayList<Project> = ArrayList()
         var gsonPretty: Gson = GsonBuilder().setPrettyPrinting().create()

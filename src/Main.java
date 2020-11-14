@@ -15,5 +15,6 @@ public class Main {
         private static void runAllStarts(){
             Team.Companion.start();
             Staff.Companion.start();
+            Project.Companion.start();
         }
 }
