@@ -1,0 +1,18 @@
+[
+  {
+    "progress": 0,
+    "tasks": [],
+    "manager": "",
+    "name": "proj1 title"
+  },
+  {
+    "progress": 0,
+    "tasks": [],
+    "manager": "",
+    "name": "proj2 title"
+  },
+  {
+    "progress": 0,
+    "name": "proj3 title"
+  }
+]

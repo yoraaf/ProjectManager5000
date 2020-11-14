@@ -150,7 +150,8 @@ public class TeamForm extends javax.swing.JFrame {
         }
         if(!teamList.getText().contains("(L)")){
             JOptionPane.showMessageDialog(null, "A team must have a leader.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;}
+            return;
+        }
         String teamString = teamList.getText();
         String[] teamArray = teamString.split("\n");
 
