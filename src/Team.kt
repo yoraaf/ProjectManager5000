@@ -5,11 +5,14 @@ import java.io.PrintWriter
 
 class Team(var name:String, var leader:String, var list:Collection<String>) {
     init{
-        val jsonString = gsonPretty.toJson(this)
-        println(jsonString)
+        var writerObj = PrintWriter("./src/JSON/teams.JSON")
+        masterList.add(this)
+        val jsonString = gsonPretty.toJson(masterList)
+        println("JSON: $jsonString")
+        println("MasterList $masterList")
         writerObj.write(jsonString)
         writerObj.close()
-        masterList.add(this)
+
     }
 
     override fun toString(): String {
@@ -19,7 +22,6 @@ class Team(var name:String, var leader:String, var list:Collection<String>) {
     companion object{
         @JvmStatic var masterList: ArrayList<Team> = ArrayList()
         var gsonPretty: Gson = GsonBuilder().setPrettyPrinting().create()
-        var writerObj = PrintWriter("./src/JSON/tasks.JSON")
 
     }
     //Could add a parameter for a name to the team
