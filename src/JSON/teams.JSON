@@ -1,19 +1,16 @@
 [
   {
-    "name": "⛧",
-    "leader": "Rob",
+    "name": "TeamName",
+    "leader": "Henk",
     "list": [
-      "Rob (L)",
-      "Robert"
+      "Henk (L)"
     ]
   },
   {
-    "name": "⛧q",
-    "leader": "Rob",
+    "name": "aTeamName",
+    "leader": "Henk",
     "list": [
-      "Rob (L)",
-      "Robert",
-      "Item 3"
+      "Henk (L)"
     ]
   }
 ]

@@ -55,7 +55,7 @@ public class TeamForm extends javax.swing.JFrame {
 
         //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        staffList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rob", "Robert", "Item 3", "Item 4" }));
+        staffList.setModel(new javax.swing.DefaultComboBoxModel<>(Staff.Companion.getNames().toArray(new String[0])));
         staffList.addActionListener(evt -> staffListActionPerformed(evt));
 
         addAsMemberButton.setText("Add as Member");
@@ -70,11 +70,7 @@ public class TeamForm extends javax.swing.JFrame {
         jLabel1.setText("Enter Team Name");
 
         addStaffButton.setText("Add Staff Member");
-        addStaffButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addStaffButtonActionPerformed(evt);
-            }
-        });
+        addStaffButton.addActionListener(evt -> addStaffButtonActionPerformed(evt));
 
         selectStaffLabel.setText("Select Staff Member");
 
@@ -84,13 +80,9 @@ public class TeamForm extends javax.swing.JFrame {
         jScrollPane4.setViewportView(teamList);
 
         clearButton.setText("Clear Team");
-        clearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearButtonActionPerformed(evt);
-            }
-        });
+        clearButton.addActionListener(evt -> clearButtonActionPerformed(evt));
 
-        teamNameField.setText("⛧");
+        teamNameField.setText("TeamName");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,6 +169,7 @@ public class TeamForm extends javax.swing.JFrame {
         for(Team team : Team.Companion.getMasterList()){
             names+=team.getName()+" ";
         }
+        MainForm.mainObj.updateTeamList();
         System.out.println(names);
     }
 
@@ -213,6 +206,14 @@ public class TeamForm extends javax.swing.JFrame {
 
     private void addStaffButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+
+        String newStaffName = JOptionPane.showInputDialog("Enter name for staff member");
+        if(Staff.Companion.getNames().contains(newStaffName)){
+            JOptionPane.showMessageDialog(null, "Name already exists.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Staff newStaff = new Staff(newStaffName);
+        staffList.addItem(newStaff.getName());
     }
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {

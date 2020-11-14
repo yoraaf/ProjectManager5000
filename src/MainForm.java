@@ -22,8 +22,10 @@ public final class MainForm extends javax.swing.JFrame {
     private Map<String, Project> projects = new HashMap<String, Project>();
     //Example: projects.put(project.getName(), project);
     private ArrayList<String> projectNames = new ArrayList<>();
+    public static MainForm mainObj;
     public MainForm() {
         super("Admin panel");
+        mainObj = this;
         Project project1 = new Project("proj1 title");
         addProjectToList(project1);
         Project project2 = new Project("proj2 title");
@@ -81,7 +83,7 @@ public final class MainForm extends javax.swing.JFrame {
         deleteTeamButton.setText("Delete Team");
         deleteTeamButton.addActionListener(evt -> deleteTeamButtonActionPerformed(evt));
 
-        teamList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        updateTeamList();
         teamList.addActionListener(evt -> teamListActionPerformed(evt));
 
         manageProjectButton.setText("Manage Project");
@@ -142,7 +144,9 @@ public final class MainForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>
-
+    public void updateTeamList(){
+        teamList.setModel(new javax.swing.DefaultComboBoxModel<>(Team.Companion.getNames().toArray(new String[0])));
+    }
     private void createProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         String name = JOptionPane.showInputDialog("Enter project name.");
@@ -165,6 +169,16 @@ public final class MainForm extends javax.swing.JFrame {
 
     private void deleteTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        String teamName = teamList.getSelectedItem().toString();
+        ArrayList<Team> list = Team.Companion.getMasterList();
+        for(Team team : list){
+            if (teamName.equals(team.getName())){
+                list.remove(team);
+                break;
+            }
+        }
+        Team.Companion.setMasterList(list);
+        updateTeamList();
     }
 
     private void teamListActionPerformed(java.awt.event.ActionEvent evt) {
