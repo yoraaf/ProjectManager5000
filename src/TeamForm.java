@@ -150,6 +150,12 @@ public class TeamForm extends javax.swing.JFrame {
 
     private void finishButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        for(Team team : Team.Companion.getMasterList()){
+            if (team.getName().equals(teamNameField.getText())){
+                JOptionPane.showMessageDialog(null, "Team already exists.", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
         if(!teamList.getText().contains("(L)")){
             JOptionPane.showMessageDialog(null, "A team must have a leader.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;}
@@ -211,6 +217,8 @@ public class TeamForm extends javax.swing.JFrame {
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        teamList.setText("");
+        addAsLeaderButton.setEnabled(true);
     }
 
     /**
