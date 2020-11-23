@@ -16,9 +16,9 @@ class Project(val name: String) {
     }
 
     var progress:Int = 0
-    var tasks : ArrayList<String> = ArrayList()
-    fun addTask(taskName:String){ //change later to adding task as an object
-        tasks.add(taskName)
+    var tasks : ArrayList<Task> = ArrayList()
+    fun addTask(task:Task){ //change later to adding task as an object
+        tasks.add(task)
     }
     override fun toString(): String {
         return "[name: ${this.name}, progress: ${this.progress}, tasks:${this.tasks}]"
@@ -32,8 +32,11 @@ class Project(val name: String) {
             try{
                 val myType = object : TypeToken<ArrayList<Project>>() {}.type
                 masterList = gsonPretty.fromJson(FileReader("./src/JSON/projects.JSON"),myType)
+            }catch (e:com.google.gson.JsonSyntaxException){
+                println("Syntax error in the JSON file found")
+                e.printStackTrace()
             } catch(e:Exception){
-                println("No Projects were loaded from staff.JSON")
+                println("No Projects were loaded from projects.JSON")
             }
             println("Project list found on startup: $masterList")
 

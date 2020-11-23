@@ -62,7 +62,7 @@ public class ProjectForm extends javax.swing.JFrame {
         subsiquentTasksLabel = new javax.swing.JLabel();
         createTaskButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
 
         taskList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         taskList.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +209,7 @@ public class ProjectForm extends javax.swing.JFrame {
 
     private void createTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        CreateTaskForm form = new CreateTaskForm();
+        CreateTaskForm form = new CreateTaskForm(selectedProj);
     }
 
     private void deleteTaskActionPerformed(java.awt.event.ActionEvent evt) {

@@ -15,7 +15,20 @@ public class CreateTaskForm extends javax.swing.JFrame {
     /**
      * Creates new form CreateTaskForm
      */
+    private Project selectedProject;
     public CreateTaskForm() {
+        super("Create task");
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        };
+        initComponents();
+        setVisible(true);
+    }
+    public CreateTaskForm(Project selectedProject) {
+        super("Create task for "+selectedProject.getName());
+        this.selectedProject = selectedProject;
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -45,54 +58,34 @@ public class CreateTaskForm extends javax.swing.JFrame {
         estimatedTimeField = new javax.swing.JTextField();
         selectTeamList = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
 
         selectTeamLabel.setText("Select Team");
         previousTasksField.setEditable(false);
 
 
-        estimatedLengthLabel.setText("Estimated Length");
+        estimatedLengthLabel.setText("Estimated Length (hours):");
 
         previousTasksField.setColumns(20);
         previousTasksField.setRows(5);
         jScrollPane2.setViewportView(previousTasksField);
 
-        previousTaskList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        previousTaskList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                previousTaskListActionPerformed(evt);
-            }
-        });
+        updateTaskList();
+        previousTaskList.addActionListener(evt -> previousTaskListActionPerformed(evt));
 
         selectPreviousTaskLabel.setText("Select Previous Tasks");
 
         confirmPreviousTaskButton.setText("Confirm as previous Task");
-        confirmPreviousTaskButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmPreviousTaskButtonActionPerformed(evt);
-            }
-        });
+        confirmPreviousTaskButton.addActionListener(evt -> confirmPreviousTaskButtonActionPerformed(evt));
 
         confirmTaskButton.setText("Confirm Task");
-        confirmTaskButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmTaskButtonActionPerformed(evt);
-            }
-        });
+        confirmTaskButton.addActionListener(evt -> confirmTaskButtonActionPerformed(evt));
 
         estimatedTimeField.setText("jTextField2");
-        estimatedTimeField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                estimatedTimeFieldActionPerformed(evt);
-            }
-        });
+        estimatedTimeField.addActionListener(evt -> estimatedTimeFieldActionPerformed(evt));
 
-        selectTeamList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        selectTeamList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectTeamListActionPerformed(evt);
-            }
-        });
+        updateTeamList();
+        selectTeamList.addActionListener(evt -> selectTeamListActionPerformed(evt));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,7 +136,12 @@ public class CreateTaskForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>
-
+    public void updateTeamList(){
+        selectTeamList.setModel(new javax.swing.DefaultComboBoxModel<>(Team.Companion.getNames().toArray(new String[0])));
+    }
+    public void updateTaskList(){
+        previousTaskList.setModel(new javax.swing.DefaultComboBoxModel<>(Task.Companion.getNames().toArray(new String[0])));
+    }
     private void confirmPreviousTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }

@@ -181,7 +181,7 @@ public final class MainForm extends javax.swing.JFrame {
         String name = JOptionPane.showInputDialog("Enter project name.");
         if(name == null){return;} //return if cancel is pressed
         Project newProject = new Project(name);
-        newProject.addTask("FirstTask");
+        //newProject.addTask("FirstTask");
         System.out.println(newProject.getTasks());
 
         System.out.println("Project name: "+newProject.getName());
