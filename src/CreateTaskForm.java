@@ -48,6 +48,8 @@ public class CreateTaskForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         selectTeamLabel.setText("Select Team");
+        previousTasksField.setEditable(false);
+
 
         estimatedLengthLabel.setText("Estimated Length");
 
