@@ -147,6 +147,7 @@ public final class MainForm extends javax.swing.JFrame {
 
     private void deleteTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        if(teamList.getSelectedItem() == null){return;}
         String teamName = teamList.getSelectedItem().toString();
         ArrayList<Team> list = Team.Companion.getMasterList();
         for(Team team : list){
@@ -165,6 +166,7 @@ public final class MainForm extends javax.swing.JFrame {
 
     private void deleteProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        if(projectList.getSelectedItem() == null){return;}
         String projectName = projectList.getSelectedItem().toString();
         ArrayList<Project> list = Project.Companion.getMasterList();
         for(Project project : list){
@@ -196,6 +198,7 @@ public final class MainForm extends javax.swing.JFrame {
 
     private void manageProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        if(projectList.getSelectedItem() == null){return;}
         String projName = projectList.getSelectedItem().toString();
         ArrayList<Project> list = Project.Companion.getMasterList();
         for(Project proj : list){

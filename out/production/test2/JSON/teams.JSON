@@ -1,18 +1,21 @@
 [
   {
-    "name": "TeamName",
+    "name": "Henk\u0027s team",
     "leader": "Henk",
     "list": [
       "Henk (L)",
-      "Piet"
+      "Piet",
+      "Geert",
+      "Jan"
     ]
   },
   {
-    "name": "Henk",
-    "leader": "Geert",
+    "name": "Dick\u0027s team",
+    "leader": "Henk",
     "list": [
-      "Henk",
-      "Geert (L)"
+      "Henk (L)",
+      "Big Dick Jenkins ",
+      "Geert"
     ]
   }
 ]

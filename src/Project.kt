@@ -20,9 +20,8 @@ class Project(val name: String) {
         for(item in masterList){
             println("$item in $masterList")
             if(item.name == name){
-                masterList.remove(item)
-                masterList.add(this)
-                println("Fucking master list here: $masterList")
+                var index:Int = masterList.indexOf(item)
+                masterList[index] = this
                 break;
             }
         }

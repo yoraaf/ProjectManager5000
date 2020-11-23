@@ -173,6 +173,7 @@ public class TeamForm extends javax.swing.JFrame {
         }
         MainForm.mainObj.updateTeamList();
         System.out.println(names);
+        this.dispose();
     }
 
     private void staffListActionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,6 +213,8 @@ public class TeamForm extends javax.swing.JFrame {
         String newStaffName = JOptionPane.showInputDialog("Enter name for staff member");
         if(Staff.Companion.getNames().contains(newStaffName)){
             JOptionPane.showMessageDialog(null, "Name already exists.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } else if(newStaffName == null){
             return;
         }
         Staff newStaff = new Staff(newStaffName);

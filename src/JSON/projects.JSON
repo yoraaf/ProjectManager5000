@@ -3,66 +3,88 @@
     "progress": 0,
     "tasks": [],
     "taskNames": [],
-    "name": "b"
+    "name": "Project1"
   },
   {
     "progress": 0,
-    "tasks": [],
-    "taskNames": [],
-    "name": "c"
-  },
-  {
-    "progress": 0,
-    "tasks": [],
-    "taskNames": [],
-    "name": "f"
-  },
-  {
-    "progress": 0,
-    "tasks": [],
-    "taskNames": [],
-    "name": "g"
-  },
-  {
-    "progress": 0,
-    "name": "h"
+    "name": "Project2"
   },
   {
     "progress": 0,
     "tasks": [
       {
         "progress": 0,
-        "subsequentTask": [],
-        "title": "cunt1",
+        "subsequentTask": [
+          "Title2"
+        ],
+        "title": "Title1",
         "assignedTeam": {
-          "name": "TeamName",
+          "name": "Henk\u0027s team",
           "leader": "Henk",
           "list": [
             "Henk (L)",
-            "Piet"
+            "Piet",
+            "Geert",
+            "Jan"
           ]
         },
-        "timeFrame": 2
+        "timeFrame": 1
       },
       {
         "progress": 0,
         "subsequentTask": [],
-        "title": "cunt2",
+        "title": "Title2",
         "assignedTeam": {
-          "name": "TeamName",
+          "name": "Henk\u0027s team",
           "leader": "Henk",
           "list": [
             "Henk (L)",
-            "Piet"
+            "Piet",
+            "Geert",
+            "Jan"
           ]
         },
-        "timeFrame": 3
+        "timeFrame": 1
+      },
+      {
+        "progress": 0,
+        "subsequentTask": [],
+        "title": "Title3",
+        "assignedTeam": {
+          "name": "Henk\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Piet",
+            "Geert",
+            "Jan"
+          ]
+        },
+        "timeFrame": 15
+      },
+      {
+        "progress": 0,
+        "subsequentTask": [],
+        "title": "Henk",
+        "assignedTeam": {
+          "name": "Henk\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Piet",
+            "Geert",
+            "Jan"
+          ]
+        },
+        "timeFrame": 999
       }
     ],
     "taskNames": [
-      "cunt1",
-      "cunt2"
+      "Title1",
+      "Title2",
+      "Title3",
+      "Henk"
     ],
-    "name": "e"
+    "name": "Project3"
   }
 ]

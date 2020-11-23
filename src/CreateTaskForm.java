@@ -6,6 +6,7 @@
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -84,7 +85,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
         confirmTaskButton.setText("Confirm Task");
         confirmTaskButton.addActionListener(evt -> confirmTaskButtonActionPerformed(evt));
 
-        estimatedTimeField.setText("jTextField2");
+        estimatedTimeField.setText("1");
         estimatedTimeField.addActionListener(evt -> estimatedTimeFieldActionPerformed(evt));
 
         updateTeamList();
@@ -92,7 +93,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
 
         taskTitleLabel.setText("Task Title");
 
-        taskTitleField.setText("jTextField1");
+        taskTitleField.setText("Title");
         taskTitleField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 taskTitleFieldActionPerformed(evt);
@@ -167,9 +168,10 @@ public class CreateTaskForm extends javax.swing.JFrame {
     private void addPreviousTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         String selectedTask = previousTaskList.getSelectedItem().toString();
-        if(previousTasksField.getText().contains(selectedTask)){
-            return;
-        }
+        String prevTasks = previousTasksField.getText();
+        String[] prevTaskArray = prevTasks.split("\n");
+        if(Arrays.asList(prevTaskArray).contains(selectedTask)){return;}
+
         previousTasksField.append(previousTaskList.getSelectedItem().toString()+"\n");
     }
 
@@ -216,6 +218,16 @@ public class CreateTaskForm extends javax.swing.JFrame {
         Task newTask = new Task(title, selectedTeam, duration);
         selectedProject.addTask(newTask);
         System.out.println("Tasks for this project "+selectedProject.getTasks());
+        String prevTasks = previousTasksField.getText();
+        String[] prevTaskArray = prevTasks.split("\n");
+        for(String taskName : prevTaskArray){
+            for(Task task : selectedProject.getTasks()){
+                if(task.getTitle().equals(taskName)){
+                    newTask.addPre(task);
+                }
+            }
+        }
+        this.dispose();
     }
 
     private void taskTitleFieldActionPerformed(java.awt.event.ActionEvent evt) {
