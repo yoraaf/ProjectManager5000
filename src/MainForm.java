@@ -19,9 +19,9 @@ public final class MainForm extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     //The below map is used to easily link the name used in the JComboBox, to a project
-    private Map<String, Project> projects = new HashMap<String, Project>();
+    private final Map<String, Project> projects = new HashMap<String, Project>();
     //Example: projects.put(project.getName(), project);
-    private ArrayList<String> projectNames = new ArrayList<>();
+    private final ArrayList<String> projectNames = new ArrayList<>();
     public static MainForm mainObj;
     public MainForm() {
         super("Admin panel");
@@ -30,7 +30,7 @@ public final class MainForm extends javax.swing.JFrame {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
-        };
+        }
         initComponents();
         setVisible(true);
     }
@@ -211,7 +211,7 @@ public final class MainForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

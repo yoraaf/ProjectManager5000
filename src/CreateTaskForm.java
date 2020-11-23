@@ -22,7 +22,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
-        };
+        }
         initComponents();
         setVisible(true);
     }
@@ -33,7 +33,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
-        };
+        }
         initComponents();
         setVisible(true);
     }
@@ -53,7 +53,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
         previousTasksField = new javax.swing.JTextArea();
         previousTaskList = new javax.swing.JComboBox<>();
         selectPreviousTaskLabel = new javax.swing.JLabel();
-        confirmPreviousTaskButton = new javax.swing.JButton();
+        addPreviousTaskButton = new javax.swing.JButton();
         confirmTaskButton = new javax.swing.JButton();
         estimatedTimeField = new javax.swing.JTextField();
         selectTeamList = new javax.swing.JComboBox<>();
@@ -77,8 +77,8 @@ public class CreateTaskForm extends javax.swing.JFrame {
 
         selectPreviousTaskLabel.setText("Select Previous Tasks");
 
-        confirmPreviousTaskButton.setText("Confirm as previous Task");
-        confirmPreviousTaskButton.addActionListener(evt -> confirmPreviousTaskButtonActionPerformed(evt));
+        addPreviousTaskButton.setText("Add as previous Task");
+        addPreviousTaskButton.addActionListener(evt -> addPreviousTaskButtonActionPerformed(evt));
 
         confirmTaskButton.setText("Confirm Task");
         confirmTaskButton.addActionListener(evt -> confirmTaskButtonActionPerformed(evt));
@@ -114,7 +114,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
                                         .addComponent(confirmTaskButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(previousTaskList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(selectPreviousTaskLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(confirmPreviousTaskButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
+                                        .addComponent(addPreviousTaskButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
                                         .addComponent(estimatedTimeField)
                                         .addComponent(selectTeamList, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(taskTitleField))
@@ -144,7 +144,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(previousTaskList, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(confirmPreviousTaskButton)
+                                                .addComponent(addPreviousTaskButton)
                                                 .addGap(23, 23, 23)
                                                 .addComponent(confirmTaskButton))
                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -159,8 +159,9 @@ public class CreateTaskForm extends javax.swing.JFrame {
     public void updateTaskList(){
         previousTaskList.setModel(new javax.swing.DefaultComboBoxModel<>(Task.Companion.getNames().toArray(new String[0])));
     }
-    private void confirmPreviousTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void addPreviousTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+
     }
 
     private void selectTeamListActionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,6 +178,35 @@ public class CreateTaskForm extends javax.swing.JFrame {
 
     private void confirmTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        String title = taskTitleField.getText();
+        Team selectedTeam = null;
+        int duration = -1;
+        for(Team team:Team.Companion.getMasterList()){
+            if(team.getName().equals(selectTeamList.getSelectedItem().toString())){
+                selectedTeam = team;
+                break;
+            }
+        }
+        try{
+            duration = Integer.parseInt(estimatedTimeField.getText());
+            if(duration<0){
+                throw new NumberFormatException();
+            }
+        } catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Please enter a positive integer", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(selectedTeam == null){
+            JOptionPane.showMessageDialog(null, "Please add a team", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(title.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter a title", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Task newTask = new Task(title, selectedTeam, duration);
+        selectedProject.addTask(newTask);
+        System.out.println("Tasks for this project "+selectedProject.getTasks());
     }
 
     private void taskTitleFieldActionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,7 +216,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -219,7 +249,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify
-    private javax.swing.JButton confirmPreviousTaskButton;
+    private javax.swing.JButton addPreviousTaskButton;
     private javax.swing.JButton confirmTaskButton;
     private javax.swing.JLabel estimatedLengthLabel;
     private javax.swing.JTextField estimatedTimeField;

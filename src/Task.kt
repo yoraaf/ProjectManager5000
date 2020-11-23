@@ -4,9 +4,8 @@ import com.google.gson.reflect.TypeToken
 import java.io.FileReader
 import java.io.PrintWriter
 
-class Task (var title :String, var assignedTeam:Team, var timeFrame: Int, var assignedProject: Project){
+class Task (var title :String, var assignedTeam:Team, var timeFrame: Int){
     init{
-        assignedProject.addTask(this)
         var writerObj = PrintWriter("./src/JSON/tasks.JSON")
         masterList.add(this)
         val jsonString = gsonPretty.toJson(masterList)
@@ -15,15 +14,18 @@ class Task (var title :String, var assignedTeam:Team, var timeFrame: Int, var as
         writerObj.write(jsonString)
         writerObj.close()
     }
-    var description:String = ""
     var progress:Int = 0
     //lateinit var assignedTeam:Team
-    var subsequentTask: ArrayList<Task> = ArrayList<Task>()
+    var subsequentTask: ArrayList<Task> = ArrayList()
 
     //var timeFrame: Int = 0 //Duration of task in hours
 
     fun addPre(pre:Task){
-        pre.subsequentTask.add(this)
+        if(pre.subsequentTask == null){
+            pre.subsequentTask = mutableListOf(this) as ArrayList<Task>
+        } else {
+            pre.subsequentTask.add(this)
+        }
     }
 
     override fun toString(): String {

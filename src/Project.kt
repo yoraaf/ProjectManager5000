@@ -17,8 +17,14 @@ class Project(val name: String) {
 
     var progress:Int = 0
     var tasks : ArrayList<Task> = ArrayList()
+
     fun addTask(task:Task){ //change later to adding task as an object
-        tasks.add(task)
+        println("Adding task to project: $task")
+        if(tasks == null) {
+            tasks = mutableListOf<Task>(task) as ArrayList<Task>
+        } else{
+            tasks.add(task)
+        }
     }
     override fun toString(): String {
         return "[name: ${this.name}, progress: ${this.progress}, tasks:${this.tasks}]"

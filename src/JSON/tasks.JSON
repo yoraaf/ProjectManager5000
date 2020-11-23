@@ -1,0 +1,28 @@
+[
+  {
+    "progress": 0,
+    "title": "Task1",
+    "assignedTeam": {
+      "name": "TeamName",
+      "leader": "Henk",
+      "list": [
+        "Henk (L)",
+        "Piet"
+      ]
+    },
+    "timeFrame": 1
+  },
+  {
+    "progress": 0,
+    "title": "jTextField1",
+    "assignedTeam": {
+      "name": "TeamName",
+      "leader": "Henk",
+      "list": [
+        "Henk (L)",
+        "Piet"
+      ]
+    },
+    "timeFrame": 2
+  }
+]
