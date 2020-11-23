@@ -9,7 +9,6 @@ public class Main {
             ScalaTest test2 = new ScalaTest();
             test2.test();
 
-            //MainKt.main();
         }
 
         private static void runAllStarts(){

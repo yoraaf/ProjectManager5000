@@ -138,6 +138,7 @@ public class TeamForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>
 
     private void finishButtonActionPerformed(java.awt.event.ActionEvent evt) {

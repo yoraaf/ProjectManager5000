@@ -1,22 +1,68 @@
 [
   {
     "progress": 0,
-    "name": "Henk"
+    "tasks": [],
+    "taskNames": [],
+    "name": "b"
   },
   {
     "progress": 0,
-    "name": "Willem"
+    "tasks": [],
+    "taskNames": [],
+    "name": "c"
   },
   {
     "progress": 0,
-    "name": "Griet"
+    "tasks": [],
+    "taskNames": [],
+    "name": "f"
   },
   {
     "progress": 0,
-    "name": "Grietje"
+    "tasks": [],
+    "taskNames": [],
+    "name": "g"
   },
   {
     "progress": 0,
-    "name": "hello"
+    "name": "h"
+  },
+  {
+    "progress": 0,
+    "tasks": [
+      {
+        "progress": 0,
+        "subsequentTask": [],
+        "title": "cunt1",
+        "assignedTeam": {
+          "name": "TeamName",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Piet"
+          ]
+        },
+        "timeFrame": 2
+      },
+      {
+        "progress": 0,
+        "subsequentTask": [],
+        "title": "cunt2",
+        "assignedTeam": {
+          "name": "TeamName",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Piet"
+          ]
+        },
+        "timeFrame": 3
+      }
+    ],
+    "taskNames": [
+      "cunt1",
+      "cunt2"
+    ],
+    "name": "e"
   }
 ]

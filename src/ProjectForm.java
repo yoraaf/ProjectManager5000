@@ -197,6 +197,7 @@ public class ProjectForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>
 
     private void taskListActionPerformed(java.awt.event.ActionEvent evt) {

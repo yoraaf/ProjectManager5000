@@ -5,6 +5,7 @@
  */
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -152,16 +153,24 @@ public class CreateTaskForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>
     public void updateTeamList(){
         selectTeamList.setModel(new javax.swing.DefaultComboBoxModel<>(Team.Companion.getNames().toArray(new String[0])));
     }
     public void updateTaskList(){
-        previousTaskList.setModel(new javax.swing.DefaultComboBoxModel<>(Task.Companion.getNames().toArray(new String[0])));
+        if(selectedProject.getTaskNames() != null) {
+            previousTaskList.setModel(new javax.swing.DefaultComboBoxModel<>(selectedProject.getTaskNames().toArray(new String[0])));
+        }
     }
+    private ArrayList<Task> previousTasks = new ArrayList<>();
     private void addPreviousTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-
+        String selectedTask = previousTaskList.getSelectedItem().toString();
+        if(previousTasksField.getText().contains(selectedTask)){
+            return;
+        }
+        previousTasksField.append(previousTaskList.getSelectedItem().toString()+"\n");
     }
 
     private void selectTeamListActionPerformed(java.awt.event.ActionEvent evt) {

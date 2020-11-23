@@ -132,6 +132,7 @@ public final class MainForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>
     public void updateTeamList(){
         teamList.setModel(new javax.swing.DefaultComboBoxModel<>(Team.Companion.getNames().toArray(new String[0])));
@@ -180,6 +181,10 @@ public final class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         String name = JOptionPane.showInputDialog("Enter project name.");
         if(name == null){return;} //return if cancel is pressed
+        if(Project.Companion.getNames().contains(name)){
+            JOptionPane.showMessageDialog(null, "Project name taken, please enter another one.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         Project newProject = new Project(name);
         //newProject.addTask("FirstTask");
         System.out.println(newProject.getTasks());
@@ -195,7 +200,6 @@ public final class MainForm extends javax.swing.JFrame {
         ArrayList<Project> list = Project.Companion.getMasterList();
         for(Project proj : list){
             if (projName.equals(proj.getName())){
-                list.remove(proj);
                 ProjectForm project = new ProjectForm(proj);
                 break;
             }

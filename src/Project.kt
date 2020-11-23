@@ -15,16 +15,37 @@ class Project(val name: String) {
         writerObj.close()
     }
 
+    private fun updateJSON(){
+        println("Before loop $masterList")
+        for(item in masterList){
+            println("$item in $masterList")
+            if(item.name == name){
+                masterList.remove(item)
+                masterList.add(this)
+                println("Fucking master list here: $masterList")
+                break;
+            }
+        }
+        var writerObj = PrintWriter("./src/JSON/projects.JSON")
+        val jsonString = gsonPretty.toJson(masterList)
+        println("JSON updated: $jsonString")
+        writerObj.write(jsonString)
+        writerObj.close()
+    }
     var progress:Int = 0
     var tasks : ArrayList<Task> = ArrayList()
+    var taskNames : ArrayList<String> = ArrayList();
 
     fun addTask(task:Task){ //change later to adding task as an object
         println("Adding task to project: $task")
         if(tasks == null) {
             tasks = mutableListOf<Task>(task) as ArrayList<Task>
+            taskNames = mutableListOf(task.title) as ArrayList<String>
         } else{
             tasks.add(task)
+            taskNames.add(task.title)
         }
+        updateJSON()
     }
     override fun toString(): String {
         return "[name: ${this.name}, progress: ${this.progress}, tasks:${this.tasks}]"
