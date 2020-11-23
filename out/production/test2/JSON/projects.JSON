@@ -1,21 +1,15 @@
 [
   {
     "progress": 0,
-    "tasks": [],
-    "taskNames": [],
-    "name": "Project1"
-  },
-  {
-    "progress": 0,
-    "name": "Project2"
-  },
-  {
-    "progress": 0,
     "tasks": [
       {
-        "progress": 0,
-        "subsequentTask": [
-          "Title2"
+        "progress": true,
+        "subsequentTasks": [
+          "Title2",
+          "Title3",
+          "Title4",
+          "Title5",
+          "Title6"
         ],
         "title": "Title1",
         "assignedTeam": {
@@ -31,8 +25,8 @@
         "timeFrame": 1
       },
       {
-        "progress": 0,
-        "subsequentTask": [],
+        "progress": false,
+        "subsequentTasks": [],
         "title": "Title2",
         "assignedTeam": {
           "name": "Henk\u0027s team",
@@ -44,11 +38,11 @@
             "Jan"
           ]
         },
-        "timeFrame": 1
+        "timeFrame": 12
       },
       {
-        "progress": 0,
-        "subsequentTask": [],
+        "progress": false,
+        "subsequentTasks": [],
         "title": "Title3",
         "assignedTeam": {
           "name": "Henk\u0027s team",
@@ -60,14 +54,65 @@
             "Jan"
           ]
         },
+        "timeFrame": 13
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "title": "Title4",
+        "assignedTeam": {
+          "name": "Henk\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Piet",
+            "Geert",
+            "Jan"
+          ]
+        },
+        "timeFrame": 14
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "title": "Title5",
+        "assignedTeam": {
+          "name": "Henk\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Piet",
+            "Geert",
+            "Jan"
+          ]
+        },
         "timeFrame": 15
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "title": "Title6",
+        "assignedTeam": {
+          "name": "Henk\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Piet",
+            "Geert",
+            "Jan"
+          ]
+        },
+        "timeFrame": 16
       }
     ],
     "taskNames": [
       "Title1",
       "Title2",
-      "Title3"
+      "Title3",
+      "Title4",
+      "Title5",
+      "Title6"
     ],
-    "name": "Project3"
+    "name": "p1"
   }
 ]

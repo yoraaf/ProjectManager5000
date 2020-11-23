@@ -167,6 +167,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
     private ArrayList<Task> previousTasks = new ArrayList<>();
     private void addPreviousTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        if(previousTaskList.getSelectedItem() == null){return;}
         String selectedTask = previousTaskList.getSelectedItem().toString();
         String prevTasks = previousTasksField.getText();
         String[] prevTaskArray = prevTasks.split("\n");
@@ -227,6 +228,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
                 }
             }
         }
+        selectedProject.updateJSON();
         this.dispose();
     }
 

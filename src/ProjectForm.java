@@ -64,12 +64,8 @@ public class ProjectForm extends javax.swing.JFrame {
 
 
 
-        taskList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        taskList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                taskListActionPerformed(evt);
-            }
-        });
+        updateTaskList();
+        taskList.addActionListener(evt -> taskListActionPerformed(evt));
 
         selectedProject.setText("jLabel1");
 
@@ -78,29 +74,17 @@ public class ProjectForm extends javax.swing.JFrame {
         subsequentTaskField.setEditable(false);
 
         criticalPathScalaButton.setText("View Scala Critical Path");
-        criticalPathScalaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                criticalPathScalaButtonActionPerformed(evt);
-            }
-        });
+        criticalPathScalaButton.addActionListener(evt -> criticalPathScalaButtonActionPerformed(evt));
 
         criticalPathKotlinButton.setText("View Kotlin Critical Path");
-        criticalPathKotlinButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                criticalPathKotlinButtonActionPerformed(evt);
-            }
-        });
+        criticalPathKotlinButton.addActionListener(evt -> criticalPathKotlinButtonActionPerformed(evt));
 
         assignedTeamLabel.setText("assignedTeamLabel");
 
         taskLengthLabel.setText("taskLengthLabel");
 
         toggleCompleteButton.setText("Toggle Complete");
-        toggleCompleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                toggleCompleteButtonActionPerformed(evt);
-            }
-        });
+        toggleCompleteButton.addActionListener(evt -> toggleCompleteButtonActionPerformed(evt));
 
         subsequentTaskField.setColumns(20);
         subsequentTaskField.setRows(5);
@@ -123,7 +107,7 @@ public class ProjectForm extends javax.swing.JFrame {
                 createTaskButtonActionPerformed(evt);
             }
         });
-
+        updateTaskInfo();
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -199,9 +183,31 @@ public class ProjectForm extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>
+    public void updateTaskList(){
+        if(selectedProj.getTaskNames() != null) {
+            taskList.setModel(new javax.swing.DefaultComboBoxModel(selectedProj.getTasks().toArray(new Task[0])));
+        }
 
+    }
+
+    public void updateTaskInfo(){
+        Task selectedTask = (Task)taskList.getSelectedItem();
+        if(selectedTask == null){return;}
+        assignedTeamLabel.setText("Team: "+selectedTask.getAssignedTeam().getName());
+        taskLengthLabel.setText("Duration: "+Integer.toString(selectedTask.getTimeFrame()));
+        completedLabel.setText("Completed: "+selectedTask.getProgress());
+        subsequentTaskField.setText("");
+        if(selectedTask.getSubsequentTasks() != null) {
+            System.out.println(selectedTask.getSubsequentTasks());
+            for (var i=0;i<selectedTask.getSubsequentTasks().size();i++) {
+                subsequentTaskField.append(selectedTask.getSubsequentTasks().get(i) + "\n");
+            }
+        }
+
+    }
     private void taskListActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        updateTaskInfo();
     }
 
     private void criticalPathScalaButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,10 +221,14 @@ public class ProjectForm extends javax.swing.JFrame {
 
     private void deleteTaskActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        //selectedProj.removeTask((Task)taskList.getSelectedItem());
     }
 
     private void toggleCompleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        Task selectedTask = ((Task)taskList.getSelectedItem());
+        selectedTask.setProgress(!selectedTask.getProgress());
+        updateTaskInfo();
     }
 
     private void criticalPathKotlinButtonActionPerformed(java.awt.event.ActionEvent evt) {

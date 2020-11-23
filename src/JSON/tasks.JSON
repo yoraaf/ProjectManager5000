@@ -1,9 +1,12 @@
 [
   {
-    "progress": 0,
-    "subsequentTask": [
+    "progress": true,
+    "subsequentTasks": [
       "Title2",
-      "Title3"
+      "Title3",
+      "Title4",
+      "Title5",
+      "Title6"
     ],
     "title": "Title1",
     "assignedTeam": {
@@ -19,10 +22,8 @@
     "timeFrame": 1
   },
   {
-    "progress": 0,
-    "subsequentTask": [
-      "Title3"
-    ],
+    "progress": false,
+    "subsequentTasks": [],
     "title": "Title2",
     "assignedTeam": {
       "name": "Henk\u0027s team",
@@ -34,14 +35,44 @@
         "Jan"
       ]
     },
-    "timeFrame": 1
+    "timeFrame": 12
   },
   {
-    "progress": 0,
-    "subsequentTask": [
-      "Henk"
-    ],
+    "progress": false,
+    "subsequentTasks": [],
     "title": "Title3",
+    "assignedTeam": {
+      "name": "Henk\u0027s team",
+      "leader": "Henk",
+      "list": [
+        "Henk (L)",
+        "Piet",
+        "Geert",
+        "Jan"
+      ]
+    },
+    "timeFrame": 13
+  },
+  {
+    "progress": false,
+    "subsequentTasks": [],
+    "title": "Title4",
+    "assignedTeam": {
+      "name": "Henk\u0027s team",
+      "leader": "Henk",
+      "list": [
+        "Henk (L)",
+        "Piet",
+        "Geert",
+        "Jan"
+      ]
+    },
+    "timeFrame": 14
+  },
+  {
+    "progress": false,
+    "subsequentTasks": [],
+    "title": "Title5",
     "assignedTeam": {
       "name": "Henk\u0027s team",
       "leader": "Henk",
@@ -55,9 +86,9 @@
     "timeFrame": 15
   },
   {
-    "progress": 0,
-    "subsequentTask": [],
-    "title": "Henk",
+    "progress": false,
+    "subsequentTasks": [],
+    "title": "Title6",
     "assignedTeam": {
       "name": "Henk\u0027s team",
       "leader": "Henk",
@@ -68,6 +99,6 @@
         "Jan"
       ]
     },
-    "timeFrame": 999
+    "timeFrame": 16
   }
 ]

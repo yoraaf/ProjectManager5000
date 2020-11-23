@@ -6,20 +6,17 @@ import java.io.PrintWriter
 
 class Task (var title :String, var assignedTeam:Team, var timeFrame: Int){
     init{
-        var writerObj = PrintWriter("./src/JSON/tasks.JSON")
         masterList.add(this)
         val jsonString = gsonPretty.toJson(masterList)
-        println("JSON: $jsonString")
         println("MasterList $masterList")
-        writerObj.write(jsonString)
-        writerObj.close()
+        updateJSON()
     }
-    var progress:Int = 0
+    var progress:Boolean = false
     //lateinit var assignedTeam:Team
-    var subsequentTask: ArrayList<String> = ArrayList()
+    var subsequentTasks: ArrayList<String> = ArrayList()
 
     //var timeFrame: Int = 0 //Duration of task in hours
-    fun updateJSON(){
+    fun updateThisInJSON(){
         println("Before loop $masterList")
         for(item in masterList){
             println("$item in $masterList")
@@ -29,20 +26,22 @@ class Task (var title :String, var assignedTeam:Team, var timeFrame: Int){
                 break;
             }
         }
+        updateJSON()
+    }
+    fun updateJSON(){
         var writerObj = PrintWriter("./src/JSON/tasks.JSON")
         val jsonString = gsonPretty.toJson(masterList)
         println("JSON updated: $jsonString")
         writerObj.write(jsonString)
         writerObj.close()
     }
-
     fun addPre(pre:Task){
-        if(pre.subsequentTask == null){
-            pre.subsequentTask = mutableListOf(this.title) as ArrayList<String>
+        if(pre.subsequentTasks == null){
+            pre.subsequentTasks = mutableListOf(this.title) as ArrayList<String>
         } else {
-            pre.subsequentTask.add(this.title)
+            pre.subsequentTasks.add(this.title)
         }
-        pre.updateJSON()
+        pre.updateThisInJSON()
     }
 
     override fun toString(): String {

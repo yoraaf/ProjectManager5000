@@ -15,7 +15,7 @@ class Project(val name: String) {
         writerObj.close()
     }
 
-    private fun updateJSON(){
+    fun updateJSON(){
         println("Before loop $masterList")
         for(item in masterList){
             println("$item in $masterList")
@@ -46,6 +46,13 @@ class Project(val name: String) {
         }
         updateJSON()
     }
+    /*fun removeTask(task:Task){
+        tasks.remove(task)
+        taskNames.remove(task.title)
+        Task.masterList.remove(task)
+        task.updateJSON()
+    }*/
+
     override fun toString(): String {
         return "[name: ${this.name}, progress: ${this.progress}, tasks:${this.tasks}]"
     }
