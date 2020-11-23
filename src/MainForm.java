@@ -164,7 +164,15 @@ public final class MainForm extends javax.swing.JFrame {
 
     private void deleteProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-
+        String projectName = projectList.getSelectedItem().toString();
+        ArrayList<Project> list = Project.Companion.getMasterList();
+        for(Project project : list){
+            if (projectName.equals(project.getName())){
+                list.remove(project);
+                break;
+            }
+        }
+        Project.Companion.setMasterList(list);
         updateProjectList();
     }
 

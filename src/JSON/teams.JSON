@@ -3,14 +3,8 @@
     "name": "TeamName",
     "leader": "Henk",
     "list": [
-      "Henk (L)"
-    ]
-  },
-  {
-    "name": "aTeamName",
-    "leader": "Henk",
-    "list": [
-      "Henk (L)"
+      "Henk (L)",
+      "Piet"
     ]
   }
 ]

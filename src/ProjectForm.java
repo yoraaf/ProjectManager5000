@@ -75,6 +75,8 @@ public class ProjectForm extends javax.swing.JFrame {
 
         selectTaskLabel.setText("Select Task");
 
+        subsequentTaskField.setEditable(false);
+
         criticalPathScalaButton.setText("View Scala Critical Path");
         criticalPathScalaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
