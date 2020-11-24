@@ -246,6 +246,7 @@ public class ProjectForm extends javax.swing.JFrame {
 
     private void criticalPathKotlinButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        CalculateCriticalPath path = new CalculateCriticalPath(selectedProject);
     }
 
     private void createTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {

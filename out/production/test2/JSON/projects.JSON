@@ -1,8 +1,81 @@
 [
   {
     "progress": 0,
-    "tasks": [],
-    "taskNames": [],
+    "tasks": [
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "Title2",
+          "Title3"
+        ],
+        "name": "Title1",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 1
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "Title3"
+        ],
+        "name": "Title2",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 1
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "Title4"
+        ],
+        "name": "Title3",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 1
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "name": "Title4",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 1
+      }
+    ],
+    "taskNames": [
+      "Title1",
+      "Title2",
+      "Title3",
+      "Title4"
+    ],
     "name": "pppp"
   }
 ]
