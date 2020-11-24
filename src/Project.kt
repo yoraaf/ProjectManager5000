@@ -42,19 +42,18 @@ class Project(val name: String) {
         println("Adding task to project: $task")
         if(tasks == null) {
             tasks = mutableListOf<Task>(task) as ArrayList<Task>
-            taskNames = mutableListOf(task.title) as ArrayList<String>
+            taskNames = mutableListOf(task.name) as ArrayList<String>
         } else{
             tasks.add(task)
-            taskNames.add(task.title)
+            taskNames.add(task.name)
         }
         updateMasterList()
     }
     fun removeTask(task:Task){
         println("removing $task")
         tasks.remove(task)
-        taskNames.remove(task.title)
-        Task.masterList.remove(task)
-        task.updateJSON()
+        taskNames.remove(task.name)
+        //task.updateJSON()
         updateJSON()
     }
 

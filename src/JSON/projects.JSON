@@ -4,19 +4,16 @@
     "tasks": [
       {
         "progress": false,
-        "subsequentTasks": [
-          "Title1",
-          "Title2"
-        ],
-        "title": "Title",
+        "subsequentTasks": [],
+        "name": "Task 1",
         "assignedTeam": {
-          "name": "Henk\u0027s team",
-          "leader": "Henk",
+          "name": "Henk2\u0027s team",
+          "leader": "Henk2",
           "list": [
-            "Henk (L)",
-            "Piet",
+            "Henk2 (L)",
             "Geert",
-            "Jan"
+            "Piet",
+            "Henk"
           ]
         },
         "timeFrame": 1
@@ -24,15 +21,15 @@
       {
         "progress": false,
         "subsequentTasks": [],
-        "title": "Title1",
+        "name": "Title 5",
         "assignedTeam": {
-          "name": "Henk\u0027s team",
-          "leader": "Henk",
+          "name": "Henk2\u0027s team",
+          "leader": "Henk2",
           "list": [
-            "Henk (L)",
-            "Piet",
+            "Henk2 (L)",
             "Geert",
-            "Jan"
+            "Piet",
+            "Henk"
           ]
         },
         "timeFrame": 1
@@ -40,23 +37,55 @@
       {
         "progress": false,
         "subsequentTasks": [],
-        "title": "Title2",
+        "name": "Title6",
         "assignedTeam": {
-          "name": "Henk\u0027s team",
+          "name": "Henk2\u0027s team",
+          "leader": "Henk2",
+          "list": [
+            "Henk2 (L)",
+            "Geert",
+            "Piet",
+            "Henk"
+          ]
+        },
+        "timeFrame": 1
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "name": "Title8",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
           "leader": "Henk",
           "list": [
             "Henk (L)",
-            "Piet",
-            "Geert",
-            "Jan"
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 1
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "name": "Title2",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
           ]
         },
         "timeFrame": 1
       }
     ],
     "taskNames": [
-      "Title",
-      "Title1",
+      "Task 1",
+      "Title 5",
+      "Title6",
+      "Title8",
       "Title2"
     ],
     "name": "p1"

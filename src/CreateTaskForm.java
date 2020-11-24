@@ -33,6 +33,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
         super("Create task for "+selectedProject.getName());
         this.selectedProject = selectedProject;
         this.callerForm = callerForm;
+
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -235,7 +236,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
         String[] prevTaskArray = prevTasks.split("\n"); //turn the text area into an array
         for(String taskName : prevTaskArray){ //loop through string array
             for(Task task : selectedProject.getTasks()){ //loop through task array for this project
-                if(task.getTitle().equals(taskName)){ //find task object associated with the title in string array
+                if(task.getName().equals(taskName)){ //find task object associated with the title in string array
                     newTask.addPre(task); //add the found task to the newTask object as a pre task
                 }
             }

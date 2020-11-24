@@ -15,6 +15,5 @@ public class Main {
             Team.Companion.start();
             Staff.Companion.start();
             Project.Companion.start();
-            Task.Companion.start();
         }
 }

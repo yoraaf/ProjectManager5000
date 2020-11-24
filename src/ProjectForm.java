@@ -5,6 +5,8 @@
  */
 
 import javax.swing.*;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -16,18 +18,19 @@ public class ProjectForm extends javax.swing.JFrame {
      * Creates new form ProjectForm
      */
     private Project selectedProject;
-    public ProjectForm() {
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        initComponents();
-        setVisible(true);
-    }
+    private double tasksCompleted = 0;
+    private double tasksTotal = 0;
     public ProjectForm(Project selectedProject) {
         super("Properties of "+ selectedProject.getName());
         this.selectedProject = selectedProject;
+        if(selectedProject.getTasks()!= null && selectedProject.getTasks().size()>0) {
+            for (Task t : selectedProject.getTasks()) {
+                tasksTotal++; //increase for every task in the project
+                if (t.getProgress()) {
+                    tasksCompleted++; //increase for each completed task
+                }
+            }
+        }
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -47,7 +50,7 @@ public class ProjectForm extends javax.swing.JFrame {
     private void initComponents() {
 
         taskList = new javax.swing.JComboBox<>();
-        selectedProjectLabel = new javax.swing.JLabel();
+        projectCompletionLabel = new javax.swing.JLabel();
         selectTaskLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         criticalPathScalaButton = new javax.swing.JButton();
@@ -67,7 +70,7 @@ public class ProjectForm extends javax.swing.JFrame {
         updateTaskList();
         taskList.addActionListener(evt -> taskListActionPerformed(evt));
 
-        selectedProjectLabel.setText("jLabel1");
+        projectCompletionLabel.setText("Tasks for "+selectedProject.getName()+" completed: No tasks yet");
 
         selectTaskLabel.setText("Select Task");
 
@@ -79,9 +82,9 @@ public class ProjectForm extends javax.swing.JFrame {
         criticalPathKotlinButton.setText("View Kotlin Critical Path");
         criticalPathKotlinButton.addActionListener(evt -> criticalPathKotlinButtonActionPerformed(evt));
 
-        assignedTeamLabel.setText("assignedTeamLabel");
+        assignedTeamLabel.setText("Assigned team");
 
-        taskLengthLabel.setText("taskLengthLabel");
+        taskLengthLabel.setText("Task length");
 
         toggleCompleteButton.setText("Toggle Complete");
         toggleCompleteButton.addActionListener(evt -> toggleCompleteButtonActionPerformed(evt));
@@ -90,7 +93,7 @@ public class ProjectForm extends javax.swing.JFrame {
         subsequentTaskField.setRows(5);
         jScrollPane1.setViewportView(subsequentTaskField);
 
-        completedLabel.setText("completedLabel");
+        completedLabel.setText("Task completion");
 
         deleteTask.setText("Delete selected Task");
         deleteTask.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +119,7 @@ public class ProjectForm extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(selectedProjectLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(projectCompletionLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(taskList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +149,7 @@ public class ProjectForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(selectedProjectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(projectCompletionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(1, 1, 1)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(criticalPathScalaButton)
@@ -207,6 +210,21 @@ public class ProjectForm extends javax.swing.JFrame {
                 subsequentTaskField.append(selectedTask.getSubsequentTasks().get(i) + "\n");
             }
         }
+        tasksTotal=0;
+        tasksCompleted=0;
+        if(selectedProject.getTasks()!= null && selectedProject.getTasks().size()>0) {
+            for (Task t : selectedProject.getTasks()) {
+                tasksTotal++; //increase for every task in the project
+                if (t.getProgress()) {
+                    tasksCompleted++; //increase for each completed task
+                }
+            }
+        }
+        DecimalFormat df = new DecimalFormat("0.00");
+        df.setRoundingMode(RoundingMode.HALF_DOWN);
+        double completionRate = (tasksTotal>0) ? tasksCompleted*100/tasksTotal : 0;
+        System.out.println("completion: "+completionRate);
+        projectCompletionLabel.setText("Tasks for "+selectedProject.getName()+" completed: "+tasksCompleted+" out of "+tasksTotal+" ("+df.format(completionRate)+"%)");
 
     }
     private void taskListActionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,6 +256,7 @@ public class ProjectForm extends javax.swing.JFrame {
     private void toggleCompleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // Toggles if a task is complete, and then updates the information fields
         Task selectedTask = ((Task)taskList.getSelectedItem());
+        if(selectedTask == null){return;}
         selectedTask.setProgress(!selectedTask.getProgress());
         updateTaskInfo();
     }
@@ -245,37 +264,6 @@ public class ProjectForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProjectForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProjectForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProjectForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProjectForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ProjectForm().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify
     private javax.swing.JLabel assignedTeamLabel;
@@ -287,7 +275,7 @@ public class ProjectForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel selectTaskLabel;
-    private javax.swing.JLabel selectedProjectLabel;
+    private javax.swing.JLabel projectCompletionLabel;
     private javax.swing.JTextArea subsequentTaskField;
     private javax.swing.JLabel subsiquentTasksLabel;
     private javax.swing.JLabel taskLengthLabel;
