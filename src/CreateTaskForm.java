@@ -18,6 +18,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
      * Creates new form CreateTaskForm
      */
     private Project selectedProject;
+    private ProjectForm callerForm;
     public CreateTaskForm() {
         super("Create task");
         try {
@@ -28,9 +29,10 @@ public class CreateTaskForm extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
     }
-    public CreateTaskForm(Project selectedProject) {
+    public CreateTaskForm(Project selectedProject, ProjectForm callerForm) {
         super("Create task for "+selectedProject.getName());
         this.selectedProject = selectedProject;
+        this.callerForm = callerForm;
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -220,16 +222,19 @@ public class CreateTaskForm extends javax.swing.JFrame {
         selectedProject.addTask(newTask);
         System.out.println("Tasks for this project "+selectedProject.getTasks());
         String prevTasks = previousTasksField.getText();
-        String[] prevTaskArray = prevTasks.split("\n");
-        for(String taskName : prevTaskArray){
-            for(Task task : selectedProject.getTasks()){
-                if(task.getTitle().equals(taskName)){
-                    newTask.addPre(task);
+        String[] prevTaskArray = prevTasks.split("\n"); //turn the text area into an array
+        for(String taskName : prevTaskArray){ //loop through string array
+            for(Task task : selectedProject.getTasks()){ //loop through task array for this project
+                if(task.getTitle().equals(taskName)){ //find task object associated with the title in string array
+                    newTask.addPre(task); //add the found task to the newTask object as a pre task
                 }
             }
         }
-        selectedProject.updateJSON();
-        this.dispose();
+        selectedProject.updateJSON(); //update the project file so the new task is associated with it
+        callerForm.updateTaskList(); //update the JComboBox in ProjectForm so the new task is in there
+        callerForm.setSelectedTask(newTask); //Auto select the newly made task
+        callerForm.updateTaskInfo(); //update the information of the currently selected task
+        this.dispose(); //close CreateTaskForm
     }
 
     private void taskTitleFieldActionPerformed(java.awt.event.ActionEvent evt) {

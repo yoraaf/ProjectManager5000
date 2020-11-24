@@ -15,7 +15,7 @@ public class ProjectForm extends javax.swing.JFrame {
     /**
      * Creates new form ProjectForm
      */
-    private Project selectedProj;
+    private Project selectedProject;
     public ProjectForm() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -25,9 +25,9 @@ public class ProjectForm extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
     }
-    public ProjectForm(Project selectedProj) {
-        super("Properties of "+selectedProj.getName());
-        this.selectedProj = selectedProj;
+    public ProjectForm(Project selectedProject) {
+        super("Properties of "+ selectedProject.getName());
+        this.selectedProject = selectedProject;
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -47,7 +47,7 @@ public class ProjectForm extends javax.swing.JFrame {
     private void initComponents() {
 
         taskList = new javax.swing.JComboBox<>();
-        selectedProject = new javax.swing.JLabel();
+        selectedProjectLabel = new javax.swing.JLabel();
         selectTaskLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         criticalPathScalaButton = new javax.swing.JButton();
@@ -67,7 +67,7 @@ public class ProjectForm extends javax.swing.JFrame {
         updateTaskList();
         taskList.addActionListener(evt -> taskListActionPerformed(evt));
 
-        selectedProject.setText("jLabel1");
+        selectedProjectLabel.setText("jLabel1");
 
         selectTaskLabel.setText("Select Task");
 
@@ -99,7 +99,7 @@ public class ProjectForm extends javax.swing.JFrame {
             }
         });
 
-        subsiquentTasksLabel.setText("Subsiquent Tasks");
+        subsiquentTasksLabel.setText("Subsequent Tasks");
 
         createTaskButton.setText("Create New Task");
         createTaskButton.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +116,7 @@ public class ProjectForm extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(selectedProject, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(selectedProjectLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(taskList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +146,7 @@ public class ProjectForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(selectedProject, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(selectedProjectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(1, 1, 1)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(criticalPathScalaButton)
@@ -183,14 +183,18 @@ public class ProjectForm extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>
-    public void updateTaskList(){
-        if(selectedProj.getTaskNames() != null) {
-            taskList.setModel(new javax.swing.DefaultComboBoxModel(selectedProj.getTasks().toArray(new Task[0])));
+    public void updateTaskList(){ //updates the JComboBox
+        if(selectedProject.getTaskNames() != null) {
+            taskList.setModel(new javax.swing.DefaultComboBoxModel(selectedProject.getTasks().toArray(new Task[0])));
         }
 
     }
 
-    public void updateTaskInfo(){
+    public void setSelectedTask(Task t){
+        taskList.setSelectedItem(t);
+    }
+
+    public void updateTaskInfo(){ //updates the information of the currently selected task
         Task selectedTask = (Task)taskList.getSelectedItem();
         if(selectedTask == null){return;}
         assignedTeamLabel.setText("Team: "+selectedTask.getAssignedTeam().getName());
@@ -206,7 +210,7 @@ public class ProjectForm extends javax.swing.JFrame {
 
     }
     private void taskListActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        // Whenever a different task is selected, update the information
         updateTaskInfo();
     }
 
@@ -214,9 +218,13 @@ public class ProjectForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
+    private void criticalPathKotlinButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
     private void createTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        CreateTaskForm form = new CreateTaskForm(selectedProj);
+        CreateTaskForm form = new CreateTaskForm(selectedProject, this);
     }
 
     private void deleteTaskActionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,14 +233,10 @@ public class ProjectForm extends javax.swing.JFrame {
     }
 
     private void toggleCompleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        // Toggles if a task is complete, and then updates the information fields
         Task selectedTask = ((Task)taskList.getSelectedItem());
         selectedTask.setProgress(!selectedTask.getProgress());
         updateTaskInfo();
-    }
-
-    private void criticalPathKotlinButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
     }
 
     /**
@@ -280,7 +284,7 @@ public class ProjectForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel selectTaskLabel;
-    private javax.swing.JLabel selectedProject;
+    private javax.swing.JLabel selectedProjectLabel;
     private javax.swing.JTextArea subsequentTaskField;
     private javax.swing.JLabel subsiquentTasksLabel;
     private javax.swing.JLabel taskLengthLabel;

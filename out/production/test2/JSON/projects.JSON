@@ -9,7 +9,10 @@
           "Title3",
           "Title4",
           "Title5",
-          "Title6"
+          "Title6",
+          "Do a thing",
+          "Do another thing",
+          "Do a third thing"
         ],
         "title": "Title1",
         "assignedTeam": {
@@ -26,7 +29,9 @@
       },
       {
         "progress": false,
-        "subsequentTasks": [],
+        "subsequentTasks": [
+          "Do a thing"
+        ],
         "title": "Title2",
         "assignedTeam": {
           "name": "Henk\u0027s team",
@@ -103,6 +108,52 @@
           ]
         },
         "timeFrame": 16
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "title": "Do a thing",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 15
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "title": "Do another thing",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 12
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "title": "Do a third thing",
+        "assignedTeam": {
+          "name": "Henk\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Piet",
+            "Geert",
+            "Jan"
+          ]
+        },
+        "timeFrame": 12
       }
     ],
     "taskNames": [
@@ -111,7 +162,10 @@
       "Title3",
       "Title4",
       "Title5",
-      "Title6"
+      "Title6",
+      "Do a thing",
+      "Do another thing",
+      "Do a third thing"
     ],
     "name": "p1"
   }
