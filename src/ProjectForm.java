@@ -229,7 +229,10 @@ public class ProjectForm extends javax.swing.JFrame {
 
     private void deleteTaskActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        //selectedProj.removeTask((Task)taskList.getSelectedItem());
+        if(taskList.getSelectedItem() == null){return;}
+        selectedProject.removeTask((Task)taskList.getSelectedItem());
+        updateTaskList();
+        updateTaskInfo();
     }
 
     private void toggleCompleteButtonActionPerformed(java.awt.event.ActionEvent evt) {

@@ -3,18 +3,27 @@
     "progress": 0,
     "tasks": [
       {
-        "progress": true,
+        "progress": false,
         "subsequentTasks": [
-          "Title2",
-          "Title3",
-          "Title4",
-          "Title5",
-          "Title6",
-          "Do a thing",
-          "Do another thing",
-          "Do a third thing",
-          "Henk does a thing"
+          "Title1",
+          "Title2"
         ],
+        "title": "Title",
+        "assignedTeam": {
+          "name": "Henk\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Piet",
+            "Geert",
+            "Jan"
+          ]
+        },
+        "timeFrame": 1
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
         "title": "Title1",
         "assignedTeam": {
           "name": "Henk\u0027s team",
@@ -30,154 +39,8 @@
       },
       {
         "progress": false,
-        "subsequentTasks": [
-          "Do a thing"
-        ],
+        "subsequentTasks": [],
         "title": "Title2",
-        "assignedTeam": {
-          "name": "Henk\u0027s team",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Piet",
-            "Geert",
-            "Jan"
-          ]
-        },
-        "timeFrame": 12
-      },
-      {
-        "progress": false,
-        "subsequentTasks": [],
-        "title": "Title3",
-        "assignedTeam": {
-          "name": "Henk\u0027s team",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Piet",
-            "Geert",
-            "Jan"
-          ]
-        },
-        "timeFrame": 13
-      },
-      {
-        "progress": false,
-        "subsequentTasks": [
-          "Henk does a thing"
-        ],
-        "title": "Title4",
-        "assignedTeam": {
-          "name": "Henk\u0027s team",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Piet",
-            "Geert",
-            "Jan"
-          ]
-        },
-        "timeFrame": 14
-      },
-      {
-        "progress": false,
-        "subsequentTasks": [],
-        "title": "Title5",
-        "assignedTeam": {
-          "name": "Henk\u0027s team",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Piet",
-            "Geert",
-            "Jan"
-          ]
-        },
-        "timeFrame": 15
-      },
-      {
-        "progress": false,
-        "subsequentTasks": [],
-        "title": "Title6",
-        "assignedTeam": {
-          "name": "Henk\u0027s team",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Piet",
-            "Geert",
-            "Jan"
-          ]
-        },
-        "timeFrame": 16
-      },
-      {
-        "progress": false,
-        "subsequentTasks": [],
-        "title": "Do a thing",
-        "assignedTeam": {
-          "name": "Dick\u0027s team",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Big Dick Jenkins ",
-            "Geert"
-          ]
-        },
-        "timeFrame": 15
-      },
-      {
-        "progress": false,
-        "subsequentTasks": [],
-        "title": "Do another thing",
-        "assignedTeam": {
-          "name": "Dick\u0027s team",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Big Dick Jenkins ",
-            "Geert"
-          ]
-        },
-        "timeFrame": 12
-      },
-      {
-        "progress": false,
-        "subsequentTasks": [],
-        "title": "Do a third thing",
-        "assignedTeam": {
-          "name": "Henk\u0027s team",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Piet",
-            "Geert",
-            "Jan"
-          ]
-        },
-        "timeFrame": 12
-      },
-      {
-        "progress": false,
-        "subsequentTasks": [],
-        "title": "Henk does a thing",
-        "assignedTeam": {
-          "name": "Henk\u0027s team",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Piet",
-            "Geert",
-            "Jan"
-          ]
-        },
-        "timeFrame": 11
-      },
-      {
-        "progress": false,
-        "subsequentTasks": [],
-        "title": "Title",
         "assignedTeam": {
           "name": "Henk\u0027s team",
           "leader": "Henk",
@@ -192,17 +55,9 @@
       }
     ],
     "taskNames": [
+      "Title",
       "Title1",
-      "Title2",
-      "Title3",
-      "Title4",
-      "Title5",
-      "Title6",
-      "Do a thing",
-      "Do another thing",
-      "Do a third thing",
-      "Henk does a thing",
-      "Title"
+      "Title2"
     ],
     "name": "p1"
   }

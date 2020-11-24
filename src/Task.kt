@@ -16,10 +16,10 @@ class Task (var title :String, var assignedTeam:Team, var timeFrame: Int){
     var subsequentTasks: ArrayList<String> = ArrayList()
 
     //var timeFrame: Int = 0 //Duration of task in hours
-    fun updateThisInJSON(){
-        println("Before loop $masterList")
+    fun updateMasterList(){
+        //println("Before loop $masterList")
         for(item in masterList){
-            println("$item in $masterList")
+            //println("$item in $masterList")
             if(item.title == title){
                 var index:Int = masterList.indexOf(item)
                 masterList[index] = this
@@ -31,7 +31,7 @@ class Task (var title :String, var assignedTeam:Team, var timeFrame: Int){
     fun updateJSON(){
         var writerObj = PrintWriter("./src/JSON/tasks.JSON")
         val jsonString = gsonPretty.toJson(masterList)
-        println("JSON updated: $jsonString")
+        println("JSON updated: TASK")
         writerObj.write(jsonString)
         writerObj.close()
     }
@@ -41,7 +41,7 @@ class Task (var title :String, var assignedTeam:Team, var timeFrame: Int){
         } else {
             pre.subsequentTasks.add(this.title)
         }
-        pre.updateThisInJSON()
+        pre.updateMasterList()
     }
 
     override fun toString(): String {

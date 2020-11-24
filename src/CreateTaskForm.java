@@ -224,6 +224,10 @@ public class CreateTaskForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter a title", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
+        if(selectedProject.getTaskNames().contains(title)){
+            JOptionPane.showMessageDialog(null, "Task already exists", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         Task newTask = new Task(title, selectedTeam, duration);
         selectedProject.addTask(newTask);
         System.out.println("Tasks for this project "+selectedProject.getTasks());
@@ -236,7 +240,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
                 }
             }
         }
-        selectedProject.updateJSON(); //update the project file so the new task is associated with it
+        selectedProject.updateMasterList(); //update the project file so the new task is associated with it
         callerForm.updateTaskList(); //update the JComboBox in ProjectForm so the new task is in there
         callerForm.setSelectedTask(newTask); //Auto select the newly made task
         callerForm.updateTaskInfo(); //update the information of the currently selected task

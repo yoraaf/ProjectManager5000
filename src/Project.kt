@@ -14,26 +14,29 @@ class Project(val name: String) {
         writerObj.write(jsonString)
         writerObj.close()
     }
+    var progress:Int = 0
+    var tasks : ArrayList<Task> = ArrayList()
+    var taskNames : ArrayList<String> = ArrayList();
 
-    fun updateJSON(){
-        println("Before loop $masterList")
+    fun updateMasterList(){ //update this in the masterList
+        //println("Before loop ")
         for(item in masterList){
-            println("$item in $masterList")
+            //println("$item in $masterList")
             if(item.name == name){
                 var index:Int = masterList.indexOf(item)
                 masterList[index] = this
                 break;
             }
         }
+        updateJSON()
+    }
+    private fun updateJSON(){ //update the actual JSON file
         var writerObj = PrintWriter("./src/JSON/projects.JSON")
         val jsonString = gsonPretty.toJson(masterList)
-        println("JSON updated: $jsonString")
+        println("JSON updated: PROJECT")
         writerObj.write(jsonString)
         writerObj.close()
     }
-    var progress:Int = 0
-    var tasks : ArrayList<Task> = ArrayList()
-    var taskNames : ArrayList<String> = ArrayList();
 
     fun addTask(task:Task){ //change later to adding task as an object
         println("Adding task to project: $task")
@@ -44,14 +47,16 @@ class Project(val name: String) {
             tasks.add(task)
             taskNames.add(task.title)
         }
-        updateJSON()
+        updateMasterList()
     }
-    /*fun removeTask(task:Task){
+    fun removeTask(task:Task){
+        println("removing $task")
         tasks.remove(task)
         taskNames.remove(task.title)
         Task.masterList.remove(task)
         task.updateJSON()
-    }*/
+        updateJSON()
+    }
 
     override fun toString(): String {
         return "[name: ${this.name}, progress: ${this.progress}, tasks:${this.tasks}]"
