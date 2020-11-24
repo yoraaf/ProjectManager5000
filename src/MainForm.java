@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class MainForm extends javax.swing.JFrame {
+public class MainForm extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
@@ -218,15 +218,6 @@ public final class MainForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainForm().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify
     private javax.swing.JButton createProjectButton;

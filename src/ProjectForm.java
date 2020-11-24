@@ -5,8 +5,10 @@
  */
 
 import javax.swing.*;
+import java.lang.reflect.Array;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 /**
  *
@@ -199,33 +201,39 @@ public class ProjectForm extends javax.swing.JFrame {
 
     public void updateTaskInfo(){ //updates the information of the currently selected task
         Task selectedTask = (Task)taskList.getSelectedItem();
-        if(selectedTask == null){return;}
-        assignedTeamLabel.setText("Team: "+selectedTask.getAssignedTeam().getName());
-        taskLengthLabel.setText("Duration: "+Integer.toString(selectedTask.getTimeFrame()));
-        completedLabel.setText("Completed: "+selectedTask.getProgress());
-        subsequentTaskField.setText("");
-        if(selectedTask.getSubsequentTasks() != null) {
-            System.out.println(selectedTask.getSubsequentTasks());
-            for (var i=0;i<selectedTask.getSubsequentTasks().size();i++) {
-                subsequentTaskField.append(selectedTask.getSubsequentTasks().get(i) + "\n");
-            }
-        }
-        tasksTotal=0;
-        tasksCompleted=0;
-        if(selectedProject.getTasks()!= null && selectedProject.getTasks().size()>0) {
-            for (Task t : selectedProject.getTasks()) {
-                tasksTotal++; //increase for every task in the project
-                if (t.getProgress()) {
-                    tasksCompleted++; //increase for each completed task
+        if(selectedTask != null) {
+            assignedTeamLabel.setText("Team: " + selectedTask.getAssignedTeam().getName());
+            taskLengthLabel.setText("Duration: " + Integer.toString(selectedTask.getTimeFrame()));
+            completedLabel.setText("Completed: " + selectedTask.getProgress());
+            subsequentTaskField.setText("");
+            if (selectedTask.getSubsequentTasks() != null) {
+                System.out.println(selectedTask.getSubsequentTasks());
+                for (var i = 0; i < selectedTask.getSubsequentTasks().size(); i++) {
+                    subsequentTaskField.append(selectedTask.getSubsequentTasks().get(i) + "\n");
                 }
             }
+            tasksTotal = 0;
+            tasksCompleted = 0;
+            if (selectedProject.getTasks() != null && selectedProject.getTasks().size() > 0) {
+                for (Task t : selectedProject.getTasks()) {
+                    tasksTotal++; //increase for every task in the project
+                    if (t.getProgress()) {
+                        tasksCompleted++; //increase for each completed task
+                    }
+                }
+            }
+            DecimalFormat df = new DecimalFormat("0.00");
+            df.setRoundingMode(RoundingMode.HALF_DOWN);
+            double completionRate = (tasksTotal > 0) ? tasksCompleted * 100 / tasksTotal : 0;
+            System.out.println("completion: " + completionRate);
+            projectCompletionLabel.setText("Tasks for " + selectedProject.getName() + " completed: " + tasksCompleted + " out of " + tasksTotal + " (" + df.format(completionRate) + "%)");
+        } else{
+            assignedTeamLabel.setText("Team: ");
+            taskLengthLabel.setText("Duration: ");
+            completedLabel.setText("Completed: ");
+            subsequentTaskField.setText("");
+            projectCompletionLabel.setText("Tasks for " + selectedProject.getName() + " completed: No tasks found");
         }
-        DecimalFormat df = new DecimalFormat("0.00");
-        df.setRoundingMode(RoundingMode.HALF_DOWN);
-        double completionRate = (tasksTotal>0) ? tasksCompleted*100/tasksTotal : 0;
-        System.out.println("completion: "+completionRate);
-        projectCompletionLabel.setText("Tasks for "+selectedProject.getName()+" completed: "+tasksCompleted+" out of "+tasksTotal+" ("+df.format(completionRate)+"%)");
-
     }
     private void taskListActionPerformed(java.awt.event.ActionEvent evt) {
         // Whenever a different task is selected, update the information
@@ -248,9 +256,49 @@ public class ProjectForm extends javax.swing.JFrame {
     private void deleteTaskActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if(taskList.getSelectedItem() == null){return;}
+        ArrayList<String> subTasks = findSubsequentTasks((Task)taskList.getSelectedItem());
+        if(subTasks.size()>0) {
+            int n = JOptionPane.showConfirmDialog(null, "There are subsequent tasks, do you want to delete these?", "There are subsequent", JOptionPane.YES_NO_OPTION);
+            if (n == JOptionPane.YES_OPTION) {
+                for(String taskName:subTasks){
+                    ArrayList<Task> projectTasks = selectedProject.getTasks();
+                    for(int i = 0;i<projectTasks.size();i++){
+                        if(projectTasks.get(i).getName().equals(taskName)){
+                            selectedProject.removeTask(projectTasks.get(i));
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println("SUB TASKS FOUND!!" +findSubsequentTasks((Task)taskList.getSelectedItem()));
         selectedProject.removeTask((Task)taskList.getSelectedItem());
         updateTaskList();
         updateTaskInfo();
+    }
+
+    private ArrayList<String> findSubsequentTasks(Task t){
+        ArrayList<String> returnList = new ArrayList<>();
+        ArrayList<String> subsequentTaskNames = t.getSubsequentTasks();
+        for(String taskName : subsequentTaskNames){
+            if(!returnList.contains(taskName)){
+                returnList.add(taskName); //add all subsequent tasks of the currently selected task
+            }
+        }
+        for(int i=0;i<returnList.size();i++){ //loop through list of subsequent task names
+            for(Task task : selectedProject.getTasks()){  //loop through the project tasks
+                if(task.getName().equals(returnList.get(i))){ //find task object that fits with the task name
+                    ArrayList<String> moreTasks = findSubsequentTasks(task); //call this method again using the newly found tasks
+                    if(moreTasks !=null) {
+                        for(String moreTaskName : moreTasks) {
+                            if(!returnList.contains(moreTaskName)) { //check if item was already in the list
+                                returnList.add(moreTaskName); //add tasks from this method to the list
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return returnList;
     }
 
     private void toggleCompleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
