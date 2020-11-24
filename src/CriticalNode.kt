@@ -8,7 +8,8 @@ class CriticalNode(var name:String, var duration:Int) {
     var nextNodes:ArrayList<CriticalNode> = ArrayList()
 
     override fun toString(): String {
-        return "[\tname: ${this.name}, \nduration: ${this.duration}, \nearliestStart: ${this.earliestStart}, \nearliestFinish: ${this.earliestFinish}, \nlatestStart:${this.latestStart}, \nlatestFinish:${this.latestFinish}, \ntotalFloat:${this.totalFloat}, \npreviousNodes:${this.previousNodes}], \nnextNodes:${this.nextNodes} \n]"
+        //return "[\tname: ${this.name}, \nduration: ${this.duration}, \nearliestStart: ${this.earliestStart}, \nearliestFinish: ${this.earliestFinish}, \nlatestStart:${this.latestStart}, \nlatestFinish:${this.latestFinish}, \ntotalFloat:${this.totalFloat}, \npreviousNodes:${this.previousNodes}], \nnextNodes:${this.nextNodes} \n]"
+        return this.name
     }
 
 }
