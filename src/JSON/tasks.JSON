@@ -170,5 +170,20 @@
       ]
     },
     "timeFrame": 11
+  },
+  {
+    "progress": false,
+    "title": "Title",
+    "assignedTeam": {
+      "name": "Henk\u0027s team",
+      "leader": "Henk",
+      "list": [
+        "Henk (L)",
+        "Piet",
+        "Geert",
+        "Jan"
+      ]
+    },
+    "timeFrame": 1
   }
 ]

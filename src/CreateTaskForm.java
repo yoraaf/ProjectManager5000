@@ -184,6 +184,12 @@ public class CreateTaskForm extends javax.swing.JFrame {
 
     private void estimatedTimeFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        confirmTaskButton.requestFocus(); //focus on confirm button so that pressing enter twice will quickly confirm the task
+    }
+
+    private void taskTitleFieldActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        confirmTaskButton.requestFocus(); //focus on confirm button so that pressing enter twice will quickly confirm the task
     }
 
     private void previousTaskListActionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,10 +241,6 @@ public class CreateTaskForm extends javax.swing.JFrame {
         callerForm.setSelectedTask(newTask); //Auto select the newly made task
         callerForm.updateTaskInfo(); //update the information of the currently selected task
         this.dispose(); //close CreateTaskForm
-    }
-
-    private void taskTitleFieldActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
     }
 
     /**
