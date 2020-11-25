@@ -225,7 +225,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter a title", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if(selectedProject.getTaskNames().contains(title)){
+        if(selectedProject.getTaskNames() != null && selectedProject.getTaskNames().contains(title)){
             JOptionPane.showMessageDialog(null, "Task already exists", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }

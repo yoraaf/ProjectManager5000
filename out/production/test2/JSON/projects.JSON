@@ -5,10 +5,10 @@
       {
         "progress": false,
         "subsequentTasks": [
-          "Title2",
-          "Title3"
+          "C",
+          "D"
         ],
-        "name": "Title1",
+        "name": "A",
         "assignedTeam": {
           "name": "Dick\u0027s team",
           "leader": "Henk",
@@ -18,14 +18,14 @@
             "Geert"
           ]
         },
-        "timeFrame": 1
+        "timeFrame": 5
       },
       {
         "progress": false,
         "subsequentTasks": [
-          "Title3"
+          "D"
         ],
-        "name": "Title2",
+        "name": "B",
         "assignedTeam": {
           "name": "Dick\u0027s team",
           "leader": "Henk",
@@ -35,29 +35,12 @@
             "Geert"
           ]
         },
-        "timeFrame": 1
-      },
-      {
-        "progress": false,
-        "subsequentTasks": [
-          "Title4"
-        ],
-        "name": "Title3",
-        "assignedTeam": {
-          "name": "Dick\u0027s team",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Big Dick Jenkins ",
-            "Geert"
-          ]
-        },
-        "timeFrame": 1
+        "timeFrame": 3
       },
       {
         "progress": false,
         "subsequentTasks": [],
-        "name": "Title4",
+        "name": "C",
         "assignedTeam": {
           "name": "Dick\u0027s team",
           "leader": "Henk",
@@ -67,15 +50,30 @@
             "Geert"
           ]
         },
-        "timeFrame": 1
+        "timeFrame": 2
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "name": "D",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 4
       }
     ],
     "taskNames": [
-      "Title1",
-      "Title2",
-      "Title3",
-      "Title4"
+      "A",
+      "B",
+      "C",
+      "D"
     ],
-    "name": "pppp"
+    "name": "p1"
   }
 ]
