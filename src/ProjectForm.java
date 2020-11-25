@@ -5,6 +5,7 @@
  */
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.lang.reflect.Array;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -247,8 +248,32 @@ public class ProjectForm extends javax.swing.JFrame {
     }
 
     private void criticalPathKotlinButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         CalculateCriticalPath path = new CalculateCriticalPath(selectedProject);
+
+        JTable table = new JTable();
+        ArrayList<CriticalNode> tablelist = new ArrayList<>();
+        tablelist = path.getCriticalPath();
+        DefaultTableModel model = new DefaultTableModel();
+        JScrollPane scroll;
+        String headers[] = {"Name", "Duration", "Earliest Start", "Earliest Finish", "Latest Start"   , "Latest Finish", "Float"};
+
+        model.setColumnIdentifiers(headers);
+        table.setModel(model);
+        scroll = new JScrollPane(table);
+
+        ;
+
+        for (int i = 0; i < (tablelist.size()); i++) {
+            model.addRow(new Object[] { tablelist.get(i).getName(),tablelist.get(i).getDuration(),tablelist.get(i).getEarliestStart(),tablelist.get(i).getEarliestFinish(),tablelist.get(i).getLatestStart(),tablelist.get(i).getLatestFinish(),tablelist.get(i).getTotalFloat()});
+        }
+
+        JFrame criticalPathDisplay = new JFrame();
+        criticalPathDisplay.add(scroll);
+        criticalPathDisplay.setSize(600,300);
+        criticalPathDisplay.setLocationRelativeTo(this);
+        criticalPathDisplay.setVisible(true);
+        //int n = JOptionPane.showConfirmDialog(null, scroll, "Kotlin Critical Path",JOptionPane.DEFAULT_OPTION);
+
     }
 
     private void createTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {
