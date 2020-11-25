@@ -264,7 +264,15 @@ public class ProjectForm extends javax.swing.JFrame {
         ;
 
         for (int i = 0; i < (tablelist.size()); i++) {
-            model.addRow(new Object[] { tablelist.get(i).getName(),tablelist.get(i).getDuration(),tablelist.get(i).getEarliestStart(),tablelist.get(i).getEarliestFinish(),tablelist.get(i).getLatestStart(),tablelist.get(i).getLatestFinish(),tablelist.get(i).getTotalFloat()});
+            model.addRow(new Object[] {
+                    tablelist.get(i).getName(),
+                    tablelist.get(i).getDuration(),
+                    tablelist.get(i).getEarliestStart(),
+                    tablelist.get(i).getEarliestFinish(),
+                    tablelist.get(i).getLatestStart(),
+                    tablelist.get(i).getLatestFinish(),
+                    tablelist.get(i).getTotalFloat()
+            });
         }
 
         JFrame criticalPathDisplay = new JFrame();
@@ -272,7 +280,6 @@ public class ProjectForm extends javax.swing.JFrame {
         criticalPathDisplay.setSize(600,300);
         criticalPathDisplay.setLocationRelativeTo(this);
         criticalPathDisplay.setVisible(true);
-        //int n = JOptionPane.showConfirmDialog(null, scroll, "Kotlin Critical Path",JOptionPane.DEFAULT_OPTION);
 
     }
 
