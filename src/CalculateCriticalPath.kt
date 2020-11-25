@@ -2,7 +2,13 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashSet
 import kotlin.collections.set
 
-
+/**
+ * Acknowledgements:
+ * We used the following website to figure out how to make the criticalPath algorithm:
+ * https://www.geeksforgeeks.org/software-engineering-critical-path-method/
+ * And our code is inspired by this solution on stack overflow:
+ * https://stackoverflow.com/a/3022314
+ */
 class CalculateCriticalPath(selectedProject: Project) {
     var nodeList:ArrayList<CriticalNode> = ArrayList()
     var nodeMap:MutableMap<Task, CriticalNode> = mutableMapOf()
