@@ -242,6 +242,8 @@ public class ProjectForm extends javax.swing.JFrame {
 
     private void criticalPathScalaButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        CriticalPathScala path = new CriticalPathScala();
+        path.start(selectedProject);
     }
 
     private void criticalPathKotlinButtonActionPerformed(java.awt.event.ActionEvent evt) {

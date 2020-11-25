@@ -12,18 +12,6 @@ class CriticalNode(var name:String, var duration:Int) {
         //return this.name+" "+this.totalFloat
         return "[\tname: ${this.name}, \tduration: ${this.duration}, \tearliestStart: ${this.earliestStart}, \tearliestFinish: ${this.earliestFinish}, \tlatestStart:${this.latestStart}, \tlatestFinish:${this.latestFinish}, \ttotalFloat:${this.totalFloat}\n"
     }
-    fun isDependent(t: CriticalNode?): Boolean {
-        //is t a direct dependency?
-        if (nextNodes.contains(t)) {
-            return true
-        }
-        //is t an indirect dependency
-        for (dep in nextNodes) {
-            if (dep.isDependent(t)) {
-                return true
-            }
-        }
-        return false
-    }
+
 
 }

@@ -6,8 +6,10 @@ public class Main {
             runAllStarts();
             MainForm myform = new MainForm();
             System.out.println("Hello World!");
-            ScalaTest test2 = new ScalaTest();
+            Hello test2 = new Hello();
             test2.test();
+
+
 
         }
 
@@ -16,4 +18,5 @@ public class Main {
             Staff.Companion.start();
             Project.Companion.start();
         }
+
 }
