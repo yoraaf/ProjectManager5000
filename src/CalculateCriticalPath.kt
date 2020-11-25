@@ -1,4 +1,3 @@
-import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashSet
 import kotlin.collections.set
@@ -8,6 +7,7 @@ class CalculateCriticalPath(selectedProject: Project) {
     var nodeList:ArrayList<CriticalNode> = ArrayList()
     var nodeMap:MutableMap<Task, CriticalNode> = mutableMapOf()
     var startingList:ArrayList<CriticalNode> = ArrayList()
+    var criticalPath = ArrayList<CriticalNode>()
     init{
         for(task:Task in selectedProject.tasks){
             var newNode:CriticalNode = CriticalNode(task.name, task.timeFrame)
@@ -35,9 +35,17 @@ class CalculateCriticalPath(selectedProject: Project) {
                 calculateNextStep(node)
             }
         }*/
-        var aaaaaaaaaaa = criticalPath(nodeList)
-        println("NodeList: ")
+        var aaaaaaaaaaa = earliestStartFinishCalc(nodeList)
+        println("Earliest: ")
         print(aaaaaaaaaaa)
+        var bbbbbbbb = latestStartFinishCalc(aaaaaaaaaaa)
+        println("Latest: ")
+        print(bbbbbbbb)
+        var completedPath = totalFloatCalc(bbbbbbbb)
+        println("completed: ")
+        print(completedPath)
+        println("criticalPath: ")
+        println(criticalPath)
     }
     private fun calculateNextStep(node:CriticalNode){
         if(node.earliestStart==0){
@@ -56,17 +64,16 @@ class CalculateCriticalPath(selectedProject: Project) {
         }
     }
 
-    fun criticalPath(tasks: ArrayList<CriticalNode>?): Array<CriticalNode> {
+    fun earliestStartFinishCalc(tasks: ArrayList<CriticalNode>?): ArrayList<CriticalNode> {
         //tasks whose critical cost has been calculated
         val completed = HashSet<CriticalNode>()
         //tasks whose ciritcal cost needs to be calculated
         val remaining = HashSet(tasks) //TODO change so it looks less stolen
-
+        var maxEarliestFinish = 0
         //Backflow algorithm
         //while there are tasks whose critical cost isn't calculated.
         while (!remaining.isEmpty()) {
             var progress = false
-
             //find a new task to calculate
             val it = remaining.iterator()
             while (it.hasNext()) {
@@ -81,11 +88,67 @@ class CalculateCriticalPath(selectedProject: Project) {
                         }
                     }
                     node.earliestFinish = critical + node.duration
+                    node.earliestStart = critical
                     //set task as calculated an remove
                     completed.add(node)
                     it.remove()
                     //note we are making progress
+
                     progress = true
+                }
+            }
+            //If we haven't made any progress then a cycle must exist in
+            //the graph and we wont be able to calculate the critical path
+            if (!progress) throw RuntimeException("Cyclic dependency, algorithm stopped!")
+        }
+
+
+        return completed.toCollection(ArrayList())
+    }
+    //TODO IMPORTANT
+    fun latestStartFinishCalc(tasks: ArrayList<CriticalNode>?): ArrayList<CriticalNode> {
+        //tasks whose critical cost has been calculated
+        val completed = HashSet<CriticalNode>()
+        //tasks whose ciritcal cost needs to be calculated
+        val remaining = HashSet(tasks)
+        var maxEarliestFinish = 0
+        //Backflow algorithm
+        //while there are tasks whose critical cost isn't calculated.
+        for(node in remaining) {
+            if (maxEarliestFinish < node.earliestFinish) {
+                maxEarliestFinish = node.earliestFinish
+            }
+        }
+        println("earliest: $maxEarliestFinish, remaining: $remaining")
+        while (!remaining.isEmpty()) {
+            var progress = false
+
+            //find a new task to calculate
+            val it = remaining.iterator()
+            while (it.hasNext()) {
+                val node = it.next()
+                if (completed.containsAll(node.nextNodes)) {
+                    //all dependencies calculated, critical cost is max dependency
+                    //critical cost, plus our cost
+                    var critical = maxEarliestFinish
+                    if(node.nextNodes.size == 0){
+                        node.latestFinish = maxEarliestFinish
+                        node.latestStart = maxEarliestFinish - node.duration
+                    } else {
+                        for (t in node.nextNodes) {
+                            if (t.latestStart < critical) {
+                                critical = t.latestStart
+                            }
+                        }
+                        node.latestStart = critical - node.duration
+                        node.latestFinish = critical
+                        //set task as calculated an remove
+                    }
+                    completed.add(node)
+                    it.remove()
+                    //note we are making progress
+                    progress = true
+
                 }
             }
             //If we haven't made any progress then a cycle must exist in
@@ -96,17 +159,48 @@ class CalculateCriticalPath(selectedProject: Project) {
         //get the tasks
         val ret: Array<CriticalNode> = completed.toArray(arrayOfNulls(0))
         //create a priority list
-        Arrays.sort(ret, Comparator { o1, o2 -> //sort by cost
-            val i = o2.latestFinish - o1.latestFinish
-            if (i != 0) return@Comparator i
 
-            //using dependency as a tie breaker
-            //note if a is dependent on b then
-            //critical cost a must be >= critical cost of b
-            if (o1.isDependent(o2)) return@Comparator -1
-            if (o2.isDependent(o1)) 1 else 0
-        })
-        return ret
+        return completed.toCollection(ArrayList())
+    }
+
+    fun totalFloatCalc(tasks: ArrayList<CriticalNode>?): ArrayList<CriticalNode>{
+        val completed = ArrayList<CriticalNode>()
+        val remaining = HashSet(tasks)
+        var criticalNodes = ArrayList<CriticalNode>()
+        for(node in remaining){
+            node.totalFloat = node.latestFinish-node.earliestFinish
+            completed.add(node)
+            if(node.totalFloat == 0){
+                criticalNodes.add(node)
+            }
+        }
+        var startingNode: CriticalNode? = null
+        for(node in criticalNodes){
+            if(node.previousNodes.size == 0){
+                startingNode = node
+            }
+        }
+        criticalPath = arrayListOf(startingNode!!)
+        findNextNode(startingNode!!)
+        /*var criticalPath = arrayListOf(startingNode!!)
+        var nextNode = startingNode
+        for(i in 0 until criticalNodes.size){
+            for(anotherNode in nextNode!!.nextNodes){
+                if(anotherNode.totalFloat == 0){
+                    criticalPath.add(anotherNode)
+                    nextNode = anotherNode
+                }
+            }
+        }*/
+        return completed
+    }
+    fun findNextNode( node:CriticalNode){
+        for(nextNode in node.nextNodes){
+            if(nextNode.totalFloat == 0){
+                criticalPath.add(nextNode)
+                findNextNode(nextNode)
+            }
+        }
     }
 }
 

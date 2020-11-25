@@ -5,6 +5,156 @@
       {
         "progress": false,
         "subsequentTasks": [
+          "C"
+        ],
+        "name": "A",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 6
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "D",
+          "E"
+        ],
+        "name": "B",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 4
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "G"
+        ],
+        "name": "F",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 10
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "H"
+        ],
+        "name": "C",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 3
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "H"
+        ],
+        "name": "D",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 4
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "G"
+        ],
+        "name": "E",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 3
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "name": "H",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 2
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "name": "G",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 3
+      }
+    ],
+    "taskNames": [
+      "A",
+      "B",
+      "F",
+      "C",
+      "D",
+      "E",
+      "H",
+      "G"
+    ],
+    "name": "p2"
+  },
+  {
+    "progress": 0,
+    "tasks": [
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "B",
           "C",
           "D"
         ],
@@ -23,7 +173,8 @@
       {
         "progress": false,
         "subsequentTasks": [
-          "D"
+          "E",
+          "F"
         ],
         "name": "B",
         "assignedTeam": {
@@ -35,12 +186,31 @@
             "Geert"
           ]
         },
-        "timeFrame": 3
+        "timeFrame": 4
       },
       {
         "progress": false,
-        "subsequentTasks": [],
+        "subsequentTasks": [
+          "G"
+        ],
         "name": "C",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 12
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "L"
+        ],
+        "name": "D",
         "assignedTeam": {
           "name": "Dick\u0027s team",
           "leader": "Henk",
@@ -54,8 +224,10 @@
       },
       {
         "progress": false,
-        "subsequentTasks": [],
-        "name": "D",
+        "subsequentTasks": [
+          "H"
+        ],
+        "name": "E",
         "assignedTeam": {
           "name": "Dick\u0027s team",
           "leader": "Henk",
@@ -65,15 +237,195 @@
             "Geert"
           ]
         },
-        "timeFrame": 4
+        "timeFrame": 2
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "I"
+        ],
+        "name": "F",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 60
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "I"
+        ],
+        "name": "G",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 1
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "J"
+        ],
+        "name": "H",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 20
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "K",
+          "L"
+        ],
+        "name": "I",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 2
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "M"
+        ],
+        "name": "J",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 30
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "O"
+        ],
+        "name": "K",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 2
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "M"
+        ],
+        "name": "L",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 1
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "M"
+        ],
+        "name": "O",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 3
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "N"
+        ],
+        "name": "M",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 1
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "name": "N",
+        "assignedTeam": {
+          "name": "Dick\u0027s team",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Big Dick Jenkins ",
+            "Geert"
+          ]
+        },
+        "timeFrame": 1
       }
     ],
     "taskNames": [
       "A",
       "B",
       "C",
-      "D"
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "O",
+      "M",
+      "N"
     ],
-    "name": "p1"
+    "name": "Big Test Case"
   }
 ]
