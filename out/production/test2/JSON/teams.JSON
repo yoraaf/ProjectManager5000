@@ -17,5 +17,13 @@
       "Piet",
       "Henk"
     ]
+  },
+  {
+    "name": "TeamName",
+    "leader": "Geertje",
+    "list": [
+      "Geertje (L)",
+      "Greet"
+    ]
   }
 ]

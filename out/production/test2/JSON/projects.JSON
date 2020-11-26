@@ -427,5 +427,65 @@
       "N"
     ],
     "name": "Big Test Case"
+  },
+  {
+    "progress": 0,
+    "tasks": [
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "B"
+        ],
+        "name": "A",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 1
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "C"
+        ],
+        "name": "B",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 2
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "name": "C",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 4
+      }
+    ],
+    "taskNames": [
+      "A",
+      "B",
+      "C"
+    ],
+    "name": "test"
   }
 ]
