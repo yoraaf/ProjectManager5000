@@ -4,9 +4,14 @@ import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, Map}
 import scala.util.control.Breaks
 import scala.util.control.Breaks.{break, breakable}
+import collection.mutable._
+import scala.jdk.CollectionConverters._
+//import scala.jdk.CollectionConverters.IterableHasAsJava
 class CriticalPathScala {
   var criticalPath: ArrayBuffer[mutable.Map[String, Any]] = ArrayBuffer[mutable.Map[String, Any]]()
-  def start(selectedProject:Project): ArrayBuffer[mutable.Map[String, Any]] ={
+
+
+  def start(selectedProject:Project): util.Collection[util.Map[String, Any]] ={
     val nodeList:mutable.Map[String, mutable.Map[String, Any]] = mutable.Map()
 
     for(i <- 0 until selectedProject.getTasks.size){
@@ -44,7 +49,11 @@ class CriticalPathScala {
     println("resultTwo")
     totalFloatCalc(resultTwo)
     println("done")
-    criticalPath
+    var criticalJavaPath = ArrayBuffer[util.Map[String, Any]]()
+    for(node <- criticalPath){
+      criticalJavaPath.addOne(node.asJava)
+    }
+    criticalJavaPath.asJavaCollection
   }
 
   def containsAll(previousNodes:ArrayBuffer[mutable.Map[String, Any]], completed:ArrayBuffer[mutable.Map[String, Any]]): Boolean = {

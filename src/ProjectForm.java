@@ -10,6 +10,8 @@ import java.lang.reflect.Array;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
 
 /**
  *
@@ -244,7 +246,37 @@ public class ProjectForm extends javax.swing.JFrame {
     private void criticalPathScalaButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         CriticalPathScala path = new CriticalPathScala();
-        path.start(selectedProject);
+        var pathArrayList = new ArrayList<>(path.start(selectedProject));
+        System.out.println("test");
+
+        JTable table = new JTable();
+        ArrayList<CriticalNode> tablelist = new ArrayList<>();
+        //tablelist = pathArrayList;
+        DefaultTableModel model = new DefaultTableModel();
+        JScrollPane scroll;
+        String headers[] = {"Name", "Duration", "Earliest Start", "Earliest Finish", "Latest Start"   , "Latest Finish", "Float"};
+
+        model.setColumnIdentifiers(headers);
+        table.setModel(model);
+        scroll = new JScrollPane(table);
+
+        for (int i = 0; i < (pathArrayList.size()); i++) {
+            model.addRow(new Object[] {
+                    pathArrayList.get(i).get("name"),
+                    pathArrayList.get(i).get("duration"),
+                    pathArrayList.get(i).get("earliestStart"),
+                    pathArrayList.get(i).get("earliestFinish"),
+                    pathArrayList.get(i).get("latestStart"),
+                    pathArrayList.get(i).get("latestFinish"),
+                    pathArrayList.get(i).get("totalFloat")
+            });
+        }
+
+        JFrame criticalPathDisplay = new JFrame("Scala critical path for "+selectedProject.getName());
+        criticalPathDisplay.add(scroll);
+        criticalPathDisplay.setSize(600,300);
+        criticalPathDisplay.setLocationRelativeTo(this);
+        criticalPathDisplay.setVisible(true);
     }
 
     private void criticalPathKotlinButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -261,8 +293,6 @@ public class ProjectForm extends javax.swing.JFrame {
         table.setModel(model);
         scroll = new JScrollPane(table);
 
-        ;
-
         for (int i = 0; i < (tablelist.size()); i++) {
             model.addRow(new Object[] {
                     tablelist.get(i).getName(),
@@ -275,10 +305,11 @@ public class ProjectForm extends javax.swing.JFrame {
             });
         }
 
-        JFrame criticalPathDisplay = new JFrame();
+        JFrame criticalPathDisplay = new JFrame("Kotlin critical path for "+selectedProject.getName());
         criticalPathDisplay.add(scroll);
         criticalPathDisplay.setSize(600,300);
         criticalPathDisplay.setLocationRelativeTo(this);
+        //criticalPathDisplay.setLocation(this.getX()+this.getWidth()/2+ criticalPathDisplay.getWidth()/2, this.getY());
         criticalPathDisplay.setVisible(true);
 
     }
