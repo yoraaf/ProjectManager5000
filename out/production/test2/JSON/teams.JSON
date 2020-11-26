@@ -19,11 +19,12 @@
     ]
   },
   {
-    "name": "TeamName",
+    "name": "Test Team",
     "leader": "Geertje",
     "list": [
       "Geertje (L)",
-      "Greet"
+      "Greet",
+      "Henk2"
     ]
   }
 ]

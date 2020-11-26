@@ -305,6 +305,7 @@ public class ProjectForm extends javax.swing.JFrame {
         criticalPathDisplay.setSize(600,300);
         criticalPathDisplay.setLocationRelativeTo(this);
         //criticalPathDisplay.setLocation(this.getX()+this.getWidth()/2+ criticalPathDisplay.getWidth()/2, this.getY());
+        //criticalPathDisplay.setLocation(this.getX()+this.getWidth()/2+ criticalPathDisplay.getWidth()/2, this.getY());
         criticalPathDisplay.setVisible(true);
 
     }
@@ -317,7 +318,7 @@ public class ProjectForm extends javax.swing.JFrame {
         if(taskList.getSelectedItem() == null){return;}
         ArrayList<String> subTasks = findSubsequentTasks((Task)taskList.getSelectedItem());
         if(subTasks.size()>0) {
-            int n = JOptionPane.showConfirmDialog(null, "There are subsequent tasks, do you want to delete these?", "There are subsequent", JOptionPane.YES_NO_OPTION);
+            int n = JOptionPane.showConfirmDialog(null, "There are subsequent tasks, do you want to delete these?", "There are subsequent tasks", JOptionPane.YES_NO_OPTION);
             if (n == JOptionPane.YES_OPTION) {
                 for(String taskName:subTasks){
                     ArrayList<Task> projectTasks = selectedProject.getTasks();
