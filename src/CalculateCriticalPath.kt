@@ -18,7 +18,6 @@ class CalculateCriticalPath(selectedProject: Project) {
             val newNode = CriticalNode(task.name, task.timeFrame)
             nodeList.add(newNode)
             nodeMap[task] = newNode
-
         }
 
         for (task: Task in selectedProject.tasks) { //loop through all task objects
