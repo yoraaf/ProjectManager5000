@@ -21,7 +21,7 @@ public class TeamForm extends javax.swing.JFrame {
     public TeamForm() {
         super("Team Manager");
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
         }

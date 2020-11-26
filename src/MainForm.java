@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import com.jtattoo.plaf.*;
+import com.jtattoo.plaf.noire.*;
 
 /**
  * @author Raaf van Nieuwkerk & Joshua Roles
@@ -28,7 +30,9 @@ public class MainForm extends javax.swing.JFrame {
         super("Admin panel");
         mainObj = this;
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
+            //UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
+            //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -28,7 +28,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
         this.callerForm = callerForm;
 
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
         }
