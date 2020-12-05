@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 /**
@@ -250,6 +251,16 @@ public class EditTaskForm extends javax.swing.JFrame {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        int duration;
+        try {
+            duration = Integer.parseInt(newLengthField.getText());
+            if(duration<0){
+                throw new NumberFormatException();
+            }
+        } catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Please enter a positive integer", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         Team selectedTeam = null;
         newName = newNameField.getText();
         String oldName = selectedTask.getName();
@@ -268,7 +279,7 @@ public class EditTaskForm extends javax.swing.JFrame {
         }
         selectedTask.setName(newName);
         selectedTask.setAssignedTeam(selectedTeam);
-        selectedTask.setTimeFrame(Integer.parseInt(newLengthField.getText()));
+        selectedTask.setTimeFrame(duration);
         selectedTask.setSubsequentTasks(subsequentTaskArrayList);
 
         selectedProject.updateMasterList();
