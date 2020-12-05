@@ -30,9 +30,9 @@ public class EditTaskForm extends javax.swing.JFrame {
     private javax.swing.JButton submitButton;
     private javax.swing.JComboBox<String> teamList;
 
-    private String newName; //set
-    private ArrayList<String> subsequentTaskArrayList = new ArrayList<>(); //set
-    private Team newTeam; //set
+    private String newName;
+    private ArrayList<String> subsequentTaskArrayList = new ArrayList<>();
+    private Team newTeam;
     ArrayList<String> allTasks = new ArrayList<>();
 
     private Task selectedTask;

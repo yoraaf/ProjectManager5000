@@ -324,14 +324,26 @@ public class ProjectForm extends javax.swing.JFrame {
     private void createTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {
         CreateTaskForm form = new CreateTaskForm(selectedProject, this);
     }
-
+    private void deleteReferenceToTask(String tName){
+        for(Task task : selectedProject.getTasks()){
+            for(var i=0;i< task.getSubsequentTasks().size();i++){
+                if(task.getSubsequentTasks().get(i).equals(tName)){
+                    task.getSubsequentTasks().remove(i);
+                }
+            }
+        }
+    }
     private void deleteTaskActionPerformed(java.awt.event.ActionEvent evt) {
         if(taskList.getSelectedItem() == null){return;}
         ArrayList<String> subTasks = findSubsequentTasks((Task)taskList.getSelectedItem());
+        System.out.println("sub tasks" +subTasks);
         if(subTasks.size()>0) {
             int n = JOptionPane.showConfirmDialog(null, "There are subsequent tasks, do you want to delete these?", "There are subsequent tasks", JOptionPane.YES_NO_OPTION);
+            System.out.println("n "+n);
             if (n == JOptionPane.YES_OPTION) {
+                deleteReferenceToTask(((Task) taskList.getSelectedItem()).getName());
                 for(String taskName:subTasks){
+                    deleteReferenceToTask(taskName);
                     ArrayList<Task> projectTasks = selectedProject.getTasks();
                     for(int i = 0;i<projectTasks.size();i++){
                         if(projectTasks.get(i).getName().equals(taskName)){
@@ -339,7 +351,7 @@ public class ProjectForm extends javax.swing.JFrame {
                         }
                     }
                 }
-            }
+            } else if(n==-1){return;}
         }
         System.out.println("SUB TASKS FOUND!!" +findSubsequentTasks((Task)taskList.getSelectedItem()));
         selectedProject.removeTask((Task)taskList.getSelectedItem());
