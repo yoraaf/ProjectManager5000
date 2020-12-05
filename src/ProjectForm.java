@@ -405,7 +405,7 @@ public class ProjectForm extends javax.swing.JFrame {
     private javax.swing.JTextArea subsequentTaskField;
     private javax.swing.JLabel subsiquentTasksLabel;
     private javax.swing.JLabel taskLengthLabel;
-    private javax.swing.JComboBox<String> taskList;
+    public javax.swing.JComboBox<String> taskList;
     private javax.swing.JButton toggleCompleteButton;
     private javax.swing.JButton taskEditButton;
     // End of variables declaration

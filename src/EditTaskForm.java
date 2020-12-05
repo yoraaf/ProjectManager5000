@@ -33,7 +33,6 @@ public class EditTaskForm extends javax.swing.JFrame {
     private String newName; //set
     private ArrayList<String> subsequentTaskArrayList = new ArrayList<>(); //set
     private Team newTeam; //set
-    private int newTaskLength; //set
     ArrayList<String> allTasks = new ArrayList<>();
 
     private Task selectedTask;
@@ -58,7 +57,7 @@ public class EditTaskForm extends javax.swing.JFrame {
         teamList.setModel(new javax.swing.DefaultComboBoxModel(Team.Companion.getNames().toArray(new String[0])));
         teamList.setSelectedItem(newTeam);
         //subsequentTaskArrayList = selectedTask.getSubsequentTasks();
-        updateTaskInfo();
+        updateComboBoxes();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
@@ -96,8 +95,6 @@ public class EditTaskForm extends javax.swing.JFrame {
             }
         });
 
-        currentSubsequentTaskList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         subsequentTaskLabel.setText("Subsequent Tasks");
 
         removeSubsequentButton.setText("Remove as subsequent task");
@@ -115,10 +112,6 @@ public class EditTaskForm extends javax.swing.JFrame {
         });
 
         tasksLabel.setText("Tasks");
-
-        projectTaskList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        teamList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,58 +178,30 @@ public class EditTaskForm extends javax.swing.JFrame {
 
 
 
-    public void updateTaskInfo(){ //updates the information of the currently selected task
+    public void updateComboBoxes(){ //updates the information of the currently selected task
         allTasks.clear();
         for(String projectTaskName : selectedProject.getTaskNames()){
-            allTasks.add(projectTaskName);
+            allTasks.add(projectTaskName); //reassign tasklist
         }
         allTasks.remove(selectedTask.getName());
         allTasks.removeAll(subsequentTaskArrayList);
-        /*for(var i=0;i<allTasks.size();i++){
-            for(String subTaskName : selectedTask.getSubsequentTasks()){
-                if(allTasks.get(i).equals(subTaskName)){
-                   allTasks.remove(i);
-                }
-            }
-        }*/
-        //allTasks.removeAll(selectedTask.getSubsequentTasks());
+
         if(!selectedProject.getTaskNames().isEmpty()) {
-            //if(allTasks.isEmpty()){
-                //System.out.println("alltasks is empty");
-                //projectTaskList.removeAllItems();
-            //}else {
                 projectTaskList.setModel(new javax.swing.DefaultComboBoxModel(allTasks.toArray(new String[0])));
-            //}
-        }
-        if(!selectedTask.getSubsequentTasks().isEmpty()){
-            System.out.println("subsequentTaskArrayList"+subsequentTaskArrayList);
-            //if(subsequentTaskArrayList.isEmpty()){
-              //  System.out.println("subsequentTaskArrayList empty");
-              //  currentSubsequentTaskList.removeAllItems();
-            //} else {
-                currentSubsequentTaskList.setModel(new javax.swing.DefaultComboBoxModel(subsequentTaskArrayList.toArray(new String[0])));
-            //}
-        }
+        } //Assigns tasks to all task combo box
 
+        System.out.println("subsequentTaskArrayList"+subsequentTaskArrayList);
+        currentSubsequentTaskList.setModel(new javax.swing.DefaultComboBoxModel(subsequentTaskArrayList.toArray(new String[0])));
+        //Assigns tasks to subsequent task combo box
 
-        newTaskLength = selectedTask.getTimeFrame();
-
-        newName = selectedTask.getName();
-        /*for(Team team : Team.Companion.getMasterList()){
-            if(teamList.getSelectedItem().toString().equals(team.getName())){
-                newTeam = team;
-            }
-        }*/
-
-        //projectCompletionLabel.setText("Tasks for " + selectedProject.getName() + " completed: " + tasksCompleted + " out of " + tasksTotal + " (" + df.format(completionRate) + "%)");
-
+        //newName = selectedTask.getName();
     }
     private void removeSubsequentButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         Object selectedItem = currentSubsequentTaskList.getSelectedItem();
         if(selectedItem == null){return;}
         subsequentTaskArrayList.remove(selectedItem.toString());
-        updateTaskInfo();
+        updateComboBoxes();
         System.out.println(subsequentTaskArrayList);
     }
 
@@ -245,7 +210,7 @@ public class EditTaskForm extends javax.swing.JFrame {
         Object selectedItem = projectTaskList.getSelectedItem();
         if(selectedItem == null){return;}
         subsequentTaskArrayList.add(selectedItem.toString());
-        updateTaskInfo();
+        updateComboBoxes();
         System.out.println(subsequentTaskArrayList);
     }
 
@@ -284,6 +249,8 @@ public class EditTaskForm extends javax.swing.JFrame {
 
         selectedProject.updateMasterList();
         callerForm.updateTaskInfo();
+        callerForm.taskList.setSelectedIndex(0);
+        callerForm.taskList.setSelectedItem(selectedTask);
         this.dispose();
     }
 

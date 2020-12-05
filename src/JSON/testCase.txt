@@ -1,4 +1,4 @@
-{
+  {
     "progress": 0,
     "tasks": [
       {
@@ -19,6 +19,23 @@
           ]
         },
         "timeFrame": 5
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
+          "L"
+        ],
+        "name": "D",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 2
       },
       {
         "progress": false,
@@ -161,6 +178,23 @@
       {
         "progress": false,
         "subsequentTasks": [
+          "O"
+        ],
+        "name": "K",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 2
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
           "M"
         ],
         "name": "L",
@@ -235,10 +269,11 @@
       "H",
       "I",
       "J",
+      "K",
       "L",
       "O",
       "M",
       "N"
     ],
-    "name": "Big Test Case"
-  }
+    "name": "Big Test Case 2"
+  },

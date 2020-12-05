@@ -284,6 +284,23 @@
       {
         "progress": false,
         "subsequentTasks": [
+          "L"
+        ],
+        "name": "D",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 2
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
           "E",
           "F"
         ],
@@ -422,6 +439,23 @@
       {
         "progress": false,
         "subsequentTasks": [
+          "O"
+        ],
+        "name": "K",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 2
+      },
+      {
+        "progress": false,
+        "subsequentTasks": [
           "M"
         ],
         "name": "L",
@@ -496,6 +530,7 @@
       "H",
       "I",
       "J",
+      "K",
       "L",
       "O",
       "M",
