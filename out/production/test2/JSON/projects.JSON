@@ -154,25 +154,6 @@
       {
         "progress": false,
         "subsequentTasks": [
-          "B",
-          "C",
-          "D"
-        ],
-        "name": "A",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 5
-      },
-      {
-        "progress": false,
-        "subsequentTasks": [
           "E",
           "F"
         ],
@@ -203,7 +184,7 @@
             "Geert"
           ]
         },
-        "timeFrame": 12
+        "timeFrame": 90
       },
       {
         "progress": false,
@@ -357,7 +338,7 @@
             "Geert"
           ]
         },
-        "timeFrame": 1
+        "timeFrame": 90
       },
       {
         "progress": false,
@@ -410,7 +391,6 @@
       }
     ],
     "taskNames": [
-      "A",
       "B",
       "C",
       "D",
@@ -731,5 +711,29 @@
       "C"
     ],
     "name": "test"
+  },
+  {
+    "progress": 0,
+    "tasks": [
+      {
+        "progress": false,
+        "subsequentTasks": [],
+        "name": "A",
+        "assignedTeam": {
+          "name": "Team 2",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Piet",
+            "Josh"
+          ]
+        },
+        "timeFrame": 1
+      }
+    ],
+    "taskNames": [
+      "A"
+    ],
+    "name": "Project 2"
   }
 ]

@@ -26,5 +26,14 @@
       "Greet",
       "Henk2"
     ]
+  },
+  {
+    "name": "Team 2",
+    "leader": "Henk",
+    "list": [
+      "Henk (L)",
+      "Piet",
+      "Josh"
+    ]
   }
 ]
