@@ -7,7 +7,6 @@ import scala.jdk.CollectionConverters._
 class CriticalPathScala {
   var criticalPath: ArrayBuffer[mutable.Map[String, Any]] = ArrayBuffer[mutable.Map[String, Any]]()
 
-
   def start(selectedProject:Project): util.Collection[util.Map[String, Any]] ={
     val nodeList:mutable.Map[String, mutable.Map[String, Any]] = mutable.Map()
 

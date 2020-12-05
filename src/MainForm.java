@@ -98,7 +98,7 @@ public class MainForm extends javax.swing.JFrame {
                                                         .addComponent(manageProjectButton, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(projectListLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(projectListLabel)
                                                         .addComponent(teamListLabel))
                                                 .addGap(0, 0, Short.MAX_VALUE)))
                                 .addContainerGap())
