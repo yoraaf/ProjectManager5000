@@ -22,6 +22,16 @@ public class MainForm extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
+    //variables for the GUI:
+    private javax.swing.JButton createProjectButton;
+    private javax.swing.JButton createTeamButton;
+    private javax.swing.JButton deleteProjectButton;
+    private javax.swing.JButton deleteTeamButton;
+    private javax.swing.JButton manageProjectButton;
+    private javax.swing.JComboBox<String> projectList;
+    private javax.swing.JLabel projectListLabel;
+    private javax.swing.JComboBox<String> teamList;
+    private javax.swing.JLabel teamListLabel;
     //The below map is used to easily link the name used in the JComboBox, to a project
     private final Map<String, Project> projects = new HashMap<String, Project>();
     private final ArrayList<String> projectNames = new ArrayList<>();
@@ -29,13 +39,6 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
         super("Admin panel");
         mainObj = this;
-        try {
-
-            //UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
-            //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         initComponents();
         setVisible(true);
     }
@@ -176,7 +179,6 @@ public class MainForm extends javax.swing.JFrame {
             return;
         }
         Project newProject = new Project(name);
-        //newProject.addTask("FirstTask");
         System.out.println(newProject.getTasks());
 
         System.out.println("Project name: "+newProject.getName());
@@ -194,24 +196,6 @@ public class MainForm extends javax.swing.JFrame {
                 break;
             }
         }
-        //Project selectedProj = projects.get(projectList.getSelectedItem().toString());
-        //ProjectForm project = new ProjectForm(selectedProj);
     }
 
-    /**
-     * @param args the command line arguments
-     */
-
-    // Variables declaration - do not modify
-    private javax.swing.JButton createProjectButton;
-    private javax.swing.JButton createTeamButton;
-    private javax.swing.JButton deleteProjectButton;
-    private javax.swing.JButton deleteTeamButton;
-    private javax.swing.JButton manageProjectButton;
-    private javax.swing.JComboBox<String> projectList;
-    private javax.swing.JLabel projectListLabel;
-    private javax.swing.JComboBox<String> teamList;
-    private javax.swing.JLabel teamListLabel;
-
-    // End of variables declaration
 }

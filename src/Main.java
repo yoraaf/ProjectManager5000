@@ -5,10 +5,13 @@ import com.bulenkov.darcula.DarculaLaf;
 
 public class Main {
 
-        public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
-            //UIManager.setLookAndFeel(BernsteinLookAndFeel.class.getName());
-            UIManager.setLookAndFeel(DarculaLaf.class.getName());
-            //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        public static void main(String[] args) {
+            try {
+                UIManager.setLookAndFeel(DarculaLaf.class.getName());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             runAllStarts();
             MainForm myform = new MainForm();
         }
