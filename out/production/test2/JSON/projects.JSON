@@ -3,9 +3,14 @@
     "progress": 0,
     "tasks": [
       {
-        "progress": false,
+        "progress": true,
         "subsequentTasks": [
-          "C"
+          "F",
+          "C",
+          "D",
+          "E",
+          "H",
+          "G"
         ],
         "name": "A",
         "assignedTeam": {
@@ -38,7 +43,7 @@
         "timeFrame": 4
       },
       {
-        "progress": false,
+        "progress": true,
         "subsequentTasks": [
           "G"
         ],

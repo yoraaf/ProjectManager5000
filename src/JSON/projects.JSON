@@ -3,11 +3,16 @@
     "progress": 0,
     "tasks": [
       {
-        "progress": false,
+        "progress": true,
         "subsequentTasks": [
-          "C"
+          "F",
+          "C",
+          "D",
+          "E",
+          "H",
+          "G"
         ],
-        "name": "A",
+        "name": "Aaaaaaaaaa",
         "assignedTeam": {
           "name": "Team Josh",
           "leader": "Henk",
@@ -23,7 +28,8 @@
         "progress": false,
         "subsequentTasks": [
           "D",
-          "E"
+          "E",
+          "Aaaaaaaaaa"
         ],
         "name": "B",
         "assignedTeam": {
@@ -38,7 +44,7 @@
         "timeFrame": 4
       },
       {
-        "progress": false,
+        "progress": true,
         "subsequentTasks": [
           "G"
         ],

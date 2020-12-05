@@ -243,6 +243,7 @@ public class ProjectForm extends javax.swing.JFrame {
             subsequentTaskField.setText("");
             projectCompletionLabel.setText("Tasks for " + selectedProject.getName() + " completed: No tasks found");
         }
+        selectedProject.updateMasterList();
     }
     private void taskListActionPerformed(java.awt.event.ActionEvent evt) {
         // Whenever a different task is selected, update the information
@@ -373,7 +374,7 @@ public class ProjectForm extends javax.swing.JFrame {
 
     private void taskEditButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        EditTaskForm form = new EditTaskForm();
+        EditTaskForm form = new EditTaskForm(selectedProject, (Task)taskList.getSelectedItem(), this);
         System.out.println("Button EditForm");
     }
 
