@@ -25,6 +25,7 @@ public class CreateTaskForm extends javax.swing.JFrame {
         this.callerForm = callerForm;
         initComponents();
         setVisible(true);
+        this.setIconImage(Main.imageIcon.getImage());
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">

@@ -2,7 +2,7 @@ import javax.swing.*;
 import com.bulenkov.darcula.DarculaLaf;
 
 public class Main {
-
+        public static ImageIcon imageIcon = new ImageIcon(Main.class.getResource("img/icon.png"));
         public static void main(String[] args) {
             try {
                 UIManager.setLookAndFeel(DarculaLaf.class.getName());

@@ -3,266 +3,6 @@
     "progress": 0,
     "tasks": [
       {
-        "progress": true,
-        "subsequentTasks": [
-          "E",
-          "F"
-        ],
-        "name": "B",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 4
-      },
-      {
-        "progress": true,
-        "subsequentTasks": [
-          "G"
-        ],
-        "name": "C",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 90
-      },
-      {
-        "progress": true,
-        "subsequentTasks": [
-          "L"
-        ],
-        "name": "D",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 2
-      },
-      {
-        "progress": true,
-        "subsequentTasks": [
-          "H"
-        ],
-        "name": "E",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 2
-      },
-      {
-        "progress": true,
-        "subsequentTasks": [
-          "I"
-        ],
-        "name": "F",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 60
-      },
-      {
-        "progress": true,
-        "subsequentTasks": [
-          "I"
-        ],
-        "name": "G",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 1
-      },
-      {
-        "progress": true,
-        "subsequentTasks": [
-          "J"
-        ],
-        "name": "H",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 20
-      },
-      {
-        "progress": true,
-        "subsequentTasks": [
-          "K",
-          "L"
-        ],
-        "name": "I",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 2
-      },
-      {
-        "progress": true,
-        "subsequentTasks": [
-          "M"
-        ],
-        "name": "J",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 30
-      },
-      {
-        "progress": true,
-        "subsequentTasks": [
-          "O"
-        ],
-        "name": "K",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 2
-      },
-      {
-        "progress": true,
-        "subsequentTasks": [
-          "M"
-        ],
-        "name": "L",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 90
-      },
-      {
-        "progress": true,
-        "subsequentTasks": [
-          "M"
-        ],
-        "name": "O",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 3
-      },
-      {
-        "progress": true,
-        "subsequentTasks": [
-          "N"
-        ],
-        "name": "M",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 1
-      },
-      {
-        "progress": true,
-        "subsequentTasks": [],
-        "name": "N",
-        "assignedTeam": {
-          "name": "Team Josh",
-          "leader": "Henk",
-          "list": [
-            "Henk (L)",
-            "Harry",
-            "Geert"
-          ]
-        },
-        "timeFrame": 1
-      }
-    ],
-    "taskNames": [
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "O",
-      "M",
-      "N"
-    ],
-    "name": "Big Test Case"
-  },
-  {
-    "progress": 0,
-    "tasks": [
-      {
         "progress": false,
         "subsequentTasks": [
           "B",
@@ -536,7 +276,267 @@
       "M",
       "N"
     ],
-    "name": "Big Test Case 2"
+    "name": "Big Test Case"
+  },
+  {
+    "progress": 0,
+    "tasks": [
+      {
+        "progress": true,
+        "subsequentTasks": [
+          "E",
+          "F"
+        ],
+        "name": "B",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 4
+      },
+      {
+        "progress": true,
+        "subsequentTasks": [
+          "G"
+        ],
+        "name": "C",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 90
+      },
+      {
+        "progress": true,
+        "subsequentTasks": [
+          "L"
+        ],
+        "name": "D",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 2
+      },
+      {
+        "progress": true,
+        "subsequentTasks": [
+          "H"
+        ],
+        "name": "E",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 2
+      },
+      {
+        "progress": true,
+        "subsequentTasks": [
+          "I"
+        ],
+        "name": "F",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 60
+      },
+      {
+        "progress": true,
+        "subsequentTasks": [
+          "I"
+        ],
+        "name": "G",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 1
+      },
+      {
+        "progress": true,
+        "subsequentTasks": [
+          "J"
+        ],
+        "name": "H",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 20
+      },
+      {
+        "progress": true,
+        "subsequentTasks": [
+          "K",
+          "L"
+        ],
+        "name": "I",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 2
+      },
+      {
+        "progress": true,
+        "subsequentTasks": [
+          "M"
+        ],
+        "name": "J",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 30
+      },
+      {
+        "progress": true,
+        "subsequentTasks": [
+          "O"
+        ],
+        "name": "K",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 2
+      },
+      {
+        "progress": true,
+        "subsequentTasks": [
+          "M"
+        ],
+        "name": "L",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 90
+      },
+      {
+        "progress": true,
+        "subsequentTasks": [
+          "M"
+        ],
+        "name": "O",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 3
+      },
+      {
+        "progress": true,
+        "subsequentTasks": [
+          "N"
+        ],
+        "name": "M",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 1
+      },
+      {
+        "progress": true,
+        "subsequentTasks": [],
+        "name": "N",
+        "assignedTeam": {
+          "name": "Team Josh",
+          "leader": "Henk",
+          "list": [
+            "Henk (L)",
+            "Harry",
+            "Geert"
+          ]
+        },
+        "timeFrame": 1
+      }
+    ],
+    "taskNames": [
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "O",
+      "M",
+      "N"
+    ],
+    "name": "Big Test Case edited"
   },
   {
     "progress": 0,

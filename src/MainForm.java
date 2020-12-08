@@ -37,6 +37,7 @@ public class MainForm extends javax.swing.JFrame {
         mainObj = this;
         initComponents();
         setVisible(true);
+        this.setIconImage(Main.imageIcon.getImage());
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">

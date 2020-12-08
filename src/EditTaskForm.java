@@ -56,6 +56,7 @@ public class EditTaskForm extends javax.swing.JFrame {
         teamList.setModel(new javax.swing.DefaultComboBoxModel(Team.Companion.getNames().toArray(new String[0])));
         teamList.setSelectedItem(newTeam);
         updateComboBoxes();
+        this.setIconImage(Main.imageIcon.getImage());
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
