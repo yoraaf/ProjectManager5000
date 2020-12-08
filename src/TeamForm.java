@@ -40,7 +40,7 @@ public class TeamForm extends javax.swing.JFrame {
         addAsLeaderButton = new javax.swing.JButton();
         finishButton = new javax.swing.JButton();
         teamNameField = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        teamNameLabel = new javax.swing.JLabel();
         addStaffButton = new javax.swing.JButton();
         selectStaffLabel = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -62,7 +62,7 @@ public class TeamForm extends javax.swing.JFrame {
         finishButton.setText("Finalise Team");
         finishButton.addActionListener(evt -> finishButtonActionPerformed(evt));
 
-        jLabel1.setText("Enter Team Name");
+        teamNameLabel.setText("Enter Team Name");
 
         addStaffButton.setText("Add Staff Member");
         addStaffButton.addActionListener(evt -> addStaffButtonActionPerformed(evt));
@@ -102,7 +102,7 @@ public class TeamForm extends javax.swing.JFrame {
                                                                 .addComponent(clearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                 .addComponent(addStaffButton, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
                                                                 .addComponent(finishButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                        .addComponent(teamNameLabel))))
                                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -119,7 +119,7 @@ public class TeamForm extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel1)
+                                                .addComponent(teamNameLabel)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(teamNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -224,7 +224,7 @@ public class TeamForm extends javax.swing.JFrame {
     private javax.swing.JButton addStaffButton;
     private javax.swing.JButton clearButton;
     private javax.swing.JButton finishButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel teamNameLabel;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel selectStaffLabel;
