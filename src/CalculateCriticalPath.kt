@@ -33,9 +33,7 @@ class CalculateCriticalPath(selectedProject: Project) {
         }
 
         val stepOneList = earliestStartFinishCalc(nodeList)
-        //println("Earliest: $stepOneList")
         val stepTwoList = latestStartFinishCalc(stepOneList)
-        //println("Latest: $stepTwoList")
         var completedPath = totalFloatCalc(stepTwoList)
         println("criticalPath: ")
         println(criticalPath)

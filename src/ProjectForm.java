@@ -6,12 +6,9 @@
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.lang.reflect.Array;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Map;
 
 /**
  * @author Raaf van Nieuwkerk & Joshua Roles
@@ -20,10 +17,7 @@ import java.util.Map;
  */
 
 public class ProjectForm extends javax.swing.JFrame {
-
-    /**
-     * Creates new form ProjectForm
-     */
+     //Creates new form ProjectForm
     private Project selectedProject;
     private double tasksCompleted = 0;
     private double tasksTotal = 0;
@@ -37,11 +31,6 @@ public class ProjectForm extends javax.swing.JFrame {
                     tasksCompleted++; //increase for each completed task
                 }
             }
-        }
-        try {
-            //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         initComponents();
         setVisible(true);
@@ -257,7 +246,6 @@ public class ProjectForm extends javax.swing.JFrame {
 
         JTable table = new JTable();
         ArrayList<CriticalNode> tablelist = new ArrayList<>();
-        //tablelist = pathArrayList;
         DefaultTableModel model = new DefaultTableModel();
         JScrollPane scroll;
         String headers[] = {"Name", "Duration", "Earliest Start", "Earliest Finish", "Latest Start"   , "Latest Finish", "Float"};
@@ -315,8 +303,6 @@ public class ProjectForm extends javax.swing.JFrame {
         criticalPathDisplay.add(scroll);
         criticalPathDisplay.setSize(600,300);
         criticalPathDisplay.setLocationRelativeTo(this);
-        //criticalPathDisplay.setLocation(this.getX()+this.getWidth()/2+ criticalPathDisplay.getWidth()/2, this.getY());
-        //criticalPathDisplay.setLocation(this.getX()+this.getWidth()/2+ criticalPathDisplay.getWidth()/2, this.getY());
         criticalPathDisplay.setVisible(true);
 
     }
@@ -399,11 +385,6 @@ public class ProjectForm extends javax.swing.JFrame {
         updateTaskInfo();
     }
 
-    /**
-     * @param args the command line arguments
-     */
-
-    // Variables declaration - do not modify
     private javax.swing.JLabel assignedTeamLabel;
     private javax.swing.JLabel completedLabel;
     private javax.swing.JButton createTaskButton;
@@ -420,5 +401,5 @@ public class ProjectForm extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> taskList;
     private javax.swing.JButton toggleCompleteButton;
     private javax.swing.JButton taskEditButton;
-    // End of variables declaration
+
 }

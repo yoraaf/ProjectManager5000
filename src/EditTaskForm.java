@@ -14,10 +14,7 @@ import java.util.ArrayList;
  */
 
 public class EditTaskForm extends javax.swing.JFrame {
-
-    /**
-     * Creates new form EditTaskForm
-     */
+    //Creates new form EditTaskForm
     private javax.swing.JComboBox<String> currentSubsequentTaskList;
     private javax.swing.JComboBox<String> projectTaskList;
     private javax.swing.JLabel subsequentTaskLabel;
@@ -58,7 +55,6 @@ public class EditTaskForm extends javax.swing.JFrame {
         System.out.println("subtasks "+subsequentTaskArrayList);
         teamList.setModel(new javax.swing.DefaultComboBoxModel(Team.Companion.getNames().toArray(new String[0])));
         teamList.setSelectedItem(newTeam);
-        //subsequentTaskArrayList = selectedTask.getSubsequentTasks();
         updateComboBoxes();
     }
 
@@ -177,9 +173,6 @@ public class EditTaskForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>
 
-
-
-
     public void updateComboBoxes(){ //updates the information of the currently selected task
         allTasks.clear();
         for(String projectTaskName : selectedProject.getTaskNames()){
@@ -195,8 +188,6 @@ public class EditTaskForm extends javax.swing.JFrame {
         System.out.println("subsequentTaskArrayList"+subsequentTaskArrayList);
         currentSubsequentTaskList.setModel(new javax.swing.DefaultComboBoxModel(subsequentTaskArrayList.toArray(new String[0])));
         //Assigns tasks to subsequent task combo box
-
-        //newName = selectedTask.getName();
     }
     private void removeSubsequentButtonActionPerformed(java.awt.event.ActionEvent evt) {
         Object selectedItem = currentSubsequentTaskList.getSelectedItem();

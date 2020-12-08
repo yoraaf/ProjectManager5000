@@ -14,17 +14,9 @@ import java.util.Arrays;
  */
 
 public class TeamForm extends javax.swing.JFrame {
-
-    /**
-     * Creates new form TeamForm
-     */
+    //Creates new form TeamForm
     public TeamForm() {
         super("Team Manager");
-        try {
-            //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         initComponents();
         setVisible(true);
 
@@ -47,9 +39,6 @@ public class TeamForm extends javax.swing.JFrame {
         teamList = new javax.swing.JTextArea();
         clearButton = new javax.swing.JButton();
 
-
-
-        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         staffList.setModel(new javax.swing.DefaultComboBoxModel<>(Staff.Companion.getNames().toArray(new String[0])));
 
@@ -149,8 +138,6 @@ public class TeamForm extends javax.swing.JFrame {
         }
         String teamString = teamList.getText();
         String[] teamArray = teamString.split("\n");
-
-        //myTeam.addAll();
         String leader = "";
         for( String member : teamArray){
             if (member.contains("(L)")){
@@ -213,12 +200,6 @@ public class TeamForm extends javax.swing.JFrame {
         addAsLeaderButton.setEnabled(true);
     }
 
-    /**
-     * @param args the command line arguments
-     */
-
-
-    // Variables declaration - do not modify
     private javax.swing.JButton addAsLeaderButton;
     private javax.swing.JButton addAsMemberButton;
     private javax.swing.JButton addStaffButton;
@@ -231,5 +212,4 @@ public class TeamForm extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> staffList;
     private javax.swing.JTextArea teamList;
     private javax.swing.JTextField teamNameField;
-    // End of variables declaration
 }

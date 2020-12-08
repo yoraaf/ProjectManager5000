@@ -11,7 +11,7 @@ import kotlin.collections.ArrayList
 
 class Team(var name:String, var leader:String, var list:Collection<String>) {
     init{
-        var writerObj = PrintWriter("./src/JSON/teams.JSON")
+        val writerObj = PrintWriter("./src/JSON/teams.JSON")
         masterList.add(this)
         val jsonString = gsonPretty.toJson(masterList)
         println("JSON: $jsonString")
@@ -24,7 +24,7 @@ class Team(var name:String, var leader:String, var list:Collection<String>) {
     override fun toString(): String {
         return "[name: ${this.name}, leader: ${this.leader}, members:${this.list}]"
     }
-    //var leader:String = "";
+
     companion object{
         @JvmStatic var masterList: ArrayList<Team> = ArrayList()
         var gsonPretty:Gson = GsonBuilder().setPrettyPrinting().create()
@@ -40,12 +40,11 @@ class Team(var name:String, var leader:String, var list:Collection<String>) {
 
         }
         fun getNames():ArrayList<String>{
-            var list:ArrayList<String> = ArrayList<String>()
+            val list:ArrayList<String> = ArrayList()
             for(name in masterList){
                 list.add(name.name)
             }
             return list
         }
     }
-    //Could add a parameter for a name to the team
 }

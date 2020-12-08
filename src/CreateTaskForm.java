@@ -15,10 +15,7 @@ import java.util.Arrays;
  */
 
 public class CreateTaskForm extends javax.swing.JFrame {
-
-    /**
-     * Creates new form CreateTaskForm
-     */
+    //Creates new form CreateTaskForm
     private Project selectedProject;
     private ProjectForm callerForm;
 
@@ -26,12 +23,6 @@ public class CreateTaskForm extends javax.swing.JFrame {
         super("Create task for "+selectedProject.getName());
         this.selectedProject = selectedProject;
         this.callerForm = callerForm;
-
-        try {
-            //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         initComponents();
         setVisible(true);
     }
@@ -221,12 +212,6 @@ public class CreateTaskForm extends javax.swing.JFrame {
         this.dispose(); //close CreateTaskForm
     }
 
-    /**
-     * @param args the command line arguments
-     */
-
-
-    // Variables declaration - do not modify
     private javax.swing.JButton addPreviousTaskButton;
     private javax.swing.JButton confirmTaskButton;
     private javax.swing.JLabel estimatedLengthLabel;
@@ -239,5 +224,4 @@ public class CreateTaskForm extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> selectTeamList;
     private javax.swing.JTextField taskTitleField;
     private javax.swing.JLabel taskTitleLabel;
-    // End of variables declaration
 }

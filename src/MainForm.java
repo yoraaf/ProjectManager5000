@@ -18,10 +18,7 @@ import com.jtattoo.plaf.noire.*;
  */
 
 public class MainForm extends javax.swing.JFrame {
-
-    /**
-     * Creates new form NewJFrame
-     */
+    //Creates new form NewJFrame
     //variables for the GUI:
     private javax.swing.JButton createProjectButton;
     private javax.swing.JButton createTeamButton;
