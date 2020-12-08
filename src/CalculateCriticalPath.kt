@@ -26,7 +26,7 @@ class CalculateCriticalPath(selectedProject: Project) {
                 for (subTask: Task in selectedProject.tasks) {
                     if (subTask.name == subTaskName) { //find the task object associated with the subtask string
                         nodeMap[task]!!.nextNodes.add(nodeMap[subTask]!!); //assign the subtask NODE to the task NODE
-                        nodeMap[subTask]!!.previousNodes.add(nodeMap[task]!!); //assign the subtask NODE to the task NODE
+                        nodeMap[subTask]!!.previousNodes.add(nodeMap[task]!!); //assign the previousTask NODE to the task NODE
                     }
                 }
             }

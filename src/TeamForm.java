@@ -158,7 +158,6 @@ public class TeamForm extends javax.swing.JFrame {
     }
 
     private void addAsLeaderButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         String selectedStaff = staffList.getSelectedItem().toString();
         if(teamList.getText().contains(selectedStaff)){return;}
         String oldText = teamList.getText();
