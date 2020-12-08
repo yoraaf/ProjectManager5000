@@ -233,6 +233,12 @@ public class EditTaskForm extends javax.swing.JFrame {
                 }
             }
         }
+        if(!oldName.equals(newName)){
+            if(selectedProject.getTaskNames().contains(newName)){
+                JOptionPane.showMessageDialog(null, "Task already exists", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
         selectedTask.setName(newName);
         selectedTask.setAssignedTeam(selectedTeam);
         selectedTask.setTimeFrame(duration);
