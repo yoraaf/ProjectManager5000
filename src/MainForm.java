@@ -8,8 +8,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import com.jtattoo.plaf.*;
-import com.jtattoo.plaf.noire.*;
+
 
 /**
  * @author Raaf van Nieuwkerk & Joshua Roles

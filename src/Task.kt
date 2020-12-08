@@ -14,5 +14,4 @@ class Task (var name :String, var assignedTeam:Team, var timeFrame: Int){
     override fun toString(): String {
         return name
     }
-
 }

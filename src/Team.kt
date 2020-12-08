@@ -5,7 +5,6 @@ import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileReader
 import java.io.PrintWriter
-import java.util.*
 import kotlin.collections.ArrayList
 
 
@@ -26,7 +25,7 @@ class Team(var name:String, var leader:String, var list:Collection<String>) {
     }
 
     companion object{
-        @JvmStatic var masterList: ArrayList<Team> = ArrayList()
+        var masterList: ArrayList<Team> = ArrayList()
         var gsonPretty:Gson = GsonBuilder().setPrettyPrinting().create()
 
         fun start(){
