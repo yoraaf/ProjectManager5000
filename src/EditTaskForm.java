@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -233,12 +227,11 @@ public class EditTaskForm extends javax.swing.JFrame {
                 }
             }
         }
-        if(!oldName.equals(newName)){
-            if(selectedProject.getTaskNames().contains(newName)){
-                JOptionPane.showMessageDialog(null, "Task already exists", "Warning", JOptionPane.WARNING_MESSAGE);
-                return;
-            }
+        if(!oldName.equals(newName) && selectedProject.getTaskNames().contains(newName)){
+            JOptionPane.showMessageDialog(null, "Task already exists", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
         }
+
         selectedTask.setName(newName);
         selectedTask.setAssignedTeam(selectedTeam);
         selectedTask.setTimeFrame(duration);

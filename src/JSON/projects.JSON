@@ -604,14 +604,14 @@
       {
         "progress": false,
         "subsequentTasks": [],
-        "name": "A",
+        "name": "B",
         "assignedTeam": {
-          "name": "Team 2",
+          "name": "Team Josh",
           "leader": "Henk",
           "list": [
             "Henk (L)",
-            "Piet",
-            "Josh"
+            "Harry",
+            "Geert"
           ]
         },
         "timeFrame": 1
