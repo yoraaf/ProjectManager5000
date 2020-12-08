@@ -8,9 +8,11 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 /**
- *
- * @author joshu
+ * @author Raaf van Nieuwkerk & Joshua Roles
+ * Acknowledgements:
+ * Used the Swing UI designer in netbeans to generate code for the foundation of GUI
  */
+
 public class EditTaskForm extends javax.swing.JFrame {
 
     /**
@@ -197,7 +199,6 @@ public class EditTaskForm extends javax.swing.JFrame {
         //newName = selectedTask.getName();
     }
     private void removeSubsequentButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         Object selectedItem = currentSubsequentTaskList.getSelectedItem();
         if(selectedItem == null){return;}
         subsequentTaskArrayList.remove(selectedItem.toString());
@@ -206,7 +207,6 @@ public class EditTaskForm extends javax.swing.JFrame {
     }
 
     private void addAsSubsequentButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         Object selectedItem = projectTaskList.getSelectedItem();
         if(selectedItem == null){return;}
         subsequentTaskArrayList.add(selectedItem.toString());
@@ -215,7 +215,6 @@ public class EditTaskForm extends javax.swing.JFrame {
     }
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         int duration;
         try {
             duration = Integer.parseInt(newLengthField.getText());
