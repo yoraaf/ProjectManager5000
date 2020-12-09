@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class EditTaskForm extends javax.swing.JFrame {
     //Creates new form EditTaskForm
+    //variables for the GUI:
     private javax.swing.JComboBox<String> currentSubsequentTaskList;
     private javax.swing.JComboBox<String> projectTaskList;
     private javax.swing.JLabel subsequentTaskLabel;
@@ -171,7 +172,7 @@ public class EditTaskForm extends javax.swing.JFrame {
     public void updateComboBoxes(){ //updates the information of the currently selected task
         allTasks.clear();
         for(String projectTaskName : selectedProject.getTaskNames()){
-            allTasks.add(projectTaskName); //reassign tasklist
+            allTasks.add(projectTaskName); //reassign taskList
         }
         allTasks.remove(selectedTask.getName());
         allTasks.removeAll(subsequentTaskArrayList);

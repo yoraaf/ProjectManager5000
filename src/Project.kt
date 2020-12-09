@@ -18,7 +18,7 @@ class Project(val name: String) {
     var tasks : ArrayList<Task> = ArrayList()
     var taskNames : ArrayList<String> = ArrayList();
 
-    fun updateMasterList(){ //update this in the masterList
+    fun updateMasterList(){ //update 'this' in the masterList
         for(item in masterList){
             if(item.name == name){
                 val index:Int = masterList.indexOf(item)

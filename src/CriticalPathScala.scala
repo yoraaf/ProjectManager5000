@@ -48,9 +48,9 @@ class CriticalPathScala {
 
   /**
    * Custom contains all function as one is not available in Scala
-   * @param previousNodes
-   * @param completed
-   * @return
+   * @param previousNodes Main list
+   * @param completed Sub list
+   * @return A boolean showing whether a list all parts of another list
    */
 
   def containsAll(previousNodes:ArrayBuffer[mutable.Map[String, Any]], completed:ArrayBuffer[mutable.Map[String, Any]]): Boolean = {

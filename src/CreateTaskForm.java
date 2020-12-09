@@ -10,6 +10,20 @@ import java.util.Arrays;
 
 public class CreateTaskForm extends javax.swing.JFrame {
     //Creates new form CreateTaskForm
+    //variables for the GUI:
+    private javax.swing.JButton addPreviousTaskButton;
+    private javax.swing.JButton confirmTaskButton;
+    private javax.swing.JLabel estimatedLengthLabel;
+    private javax.swing.JTextField estimatedTimeField;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JComboBox<String> previousTaskList;
+    private javax.swing.JTextArea previousTasksField;
+    private javax.swing.JLabel selectPreviousTaskLabel;
+    private javax.swing.JLabel selectTeamLabel;
+    private javax.swing.JComboBox<String> selectTeamList;
+    private javax.swing.JTextField taskTitleField;
+    private javax.swing.JLabel taskTitleLabel;
+
     private Project selectedProject;
     private ProjectForm callerForm;
 
@@ -207,16 +221,5 @@ public class CreateTaskForm extends javax.swing.JFrame {
         this.dispose(); //close CreateTaskForm
     }
 
-    private javax.swing.JButton addPreviousTaskButton;
-    private javax.swing.JButton confirmTaskButton;
-    private javax.swing.JLabel estimatedLengthLabel;
-    private javax.swing.JTextField estimatedTimeField;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JComboBox<String> previousTaskList;
-    private javax.swing.JTextArea previousTasksField;
-    private javax.swing.JLabel selectPreviousTaskLabel;
-    private javax.swing.JLabel selectTeamLabel;
-    private javax.swing.JComboBox<String> selectTeamList;
-    private javax.swing.JTextField taskTitleField;
-    private javax.swing.JLabel taskTitleLabel;
+
 }

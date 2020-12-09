@@ -23,7 +23,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> teamList;
     private javax.swing.JLabel teamListLabel;
     //The below map is used to easily link the name used in the JComboBox, to a project
-    private final Map<String, Project> projects = new HashMap<String, Project>();
+    private final Map<String, Project> projects = new HashMap();
     private final ArrayList<String> projectNames = new ArrayList<>();
     public static MainForm mainObj;
     public MainForm() {

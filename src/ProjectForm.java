@@ -11,7 +11,25 @@ import java.util.ArrayList;
  */
 
 public class ProjectForm extends javax.swing.JFrame {
-     //Creates new form ProjectForm
+    //Creates new form ProjectForm
+    //variables for the GUI:
+    private javax.swing.JLabel assignedTeamLabel;
+    private javax.swing.JLabel completedLabel;
+    private javax.swing.JButton createTaskButton;
+    private javax.swing.JButton criticalPathKotlinButton;
+    private javax.swing.JButton criticalPathScalaButton;
+    private javax.swing.JButton deleteTask;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel selectTaskLabel;
+    private javax.swing.JLabel projectCompletionLabel;
+    private javax.swing.JTextArea subsequentTaskField;
+    private javax.swing.JLabel subsiquentTasksLabel;
+    private javax.swing.JLabel taskLengthLabel;
+    public javax.swing.JComboBox<String> taskList;
+    private javax.swing.JButton toggleCompleteButton;
+    private javax.swing.JButton taskEditButton;
+
     private Project selectedProject;
     private double tasksCompleted = 0;
     private double tasksTotal = 0;
@@ -81,27 +99,15 @@ public class ProjectForm extends javax.swing.JFrame {
         completedLabel.setText("Task completion");
 
         deleteTask.setText("Delete selected Task");
-        deleteTask.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteTaskActionPerformed(evt);
-            }
-        });
+        deleteTask.addActionListener(evt -> deleteTaskActionPerformed(evt));
 
         subsiquentTasksLabel.setText("Subsequent Tasks");
 
         createTaskButton.setText("Create New Task");
-        createTaskButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createTaskButtonActionPerformed(evt);
-            }
-        });
+        createTaskButton.addActionListener(evt -> createTaskButtonActionPerformed(evt));
 
         taskEditButton.setText("Edit Task");
-        taskEditButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                taskEditButtonActionPerformed(evt);
-            }
-        });
+        taskEditButton.addActionListener(evt -> taskEditButtonActionPerformed(evt));
 
         updateTaskInfo();
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -366,6 +372,7 @@ public class ProjectForm extends javax.swing.JFrame {
     }
 
     private void taskEditButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        if(taskList.getSelectedItem()==null){return;}
         EditTaskForm form = new EditTaskForm(selectedProject, (Task)taskList.getSelectedItem(), this);
         System.out.println("Button EditForm");
     }
@@ -379,21 +386,6 @@ public class ProjectForm extends javax.swing.JFrame {
         updateTaskInfo();
     }
 
-    private javax.swing.JLabel assignedTeamLabel;
-    private javax.swing.JLabel completedLabel;
-    private javax.swing.JButton createTaskButton;
-    private javax.swing.JButton criticalPathKotlinButton;
-    private javax.swing.JButton criticalPathScalaButton;
-    private javax.swing.JButton deleteTask;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel selectTaskLabel;
-    private javax.swing.JLabel projectCompletionLabel;
-    private javax.swing.JTextArea subsequentTaskField;
-    private javax.swing.JLabel subsiquentTasksLabel;
-    private javax.swing.JLabel taskLengthLabel;
-    public javax.swing.JComboBox<String> taskList;
-    private javax.swing.JButton toggleCompleteButton;
-    private javax.swing.JButton taskEditButton;
+
 
 }

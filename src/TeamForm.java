@@ -9,6 +9,20 @@ import java.util.Arrays;
 
 public class TeamForm extends javax.swing.JFrame {
     //Creates new form TeamForm
+    //variables for the GUI:
+    private javax.swing.JButton addAsLeaderButton;
+    private javax.swing.JButton addAsMemberButton;
+    private javax.swing.JButton addStaffButton;
+    private javax.swing.JButton clearButton;
+    private javax.swing.JButton finishButton;
+    private javax.swing.JLabel teamNameLabel;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel selectStaffLabel;
+    private javax.swing.JComboBox<String> staffList;
+    private javax.swing.JTextArea teamList;
+    private javax.swing.JTextField teamNameField;
+
     public TeamForm() {
         super("Team Manager");
         initComponents();
@@ -193,16 +207,5 @@ public class TeamForm extends javax.swing.JFrame {
         addAsLeaderButton.setEnabled(true);
     }
 
-    private javax.swing.JButton addAsLeaderButton;
-    private javax.swing.JButton addAsMemberButton;
-    private javax.swing.JButton addStaffButton;
-    private javax.swing.JButton clearButton;
-    private javax.swing.JButton finishButton;
-    private javax.swing.JLabel teamNameLabel;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel selectStaffLabel;
-    private javax.swing.JComboBox<String> staffList;
-    private javax.swing.JTextArea teamList;
-    private javax.swing.JTextField teamNameField;
+
 }
